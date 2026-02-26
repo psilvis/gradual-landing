@@ -10,7 +10,6 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
     <style>
         * {
             margin: 0;
@@ -295,8 +294,8 @@
             margin-top: 6px;
         }
 
-        /* Honeypot - hidden from real users */
-        .form-field-website {
+        /* Honeypot fields - hidden from real users */
+        .ohnohoney {
             opacity: 0;
             position: absolute;
             top: 0;
@@ -304,11 +303,6 @@
             height: 0;
             width: 0;
             z-index: -1;
-        }
-
-        /* reCAPTCHA */
-        .recaptcha-container {
-            margin-bottom: 20px;
         }
 
         /* Submit Button */
@@ -568,8 +562,11 @@
             <form id="messageForm" class="form-section" action="https://formspree.io/f/mqeddqzq" method="POST">
                 <input type="hidden" name="category" id="categoryInput" value="">
 
-                <!-- Honeypot field - hidden from real users, bots will fill it -->
-                <div class="form-field-website">
+                <!-- Formspree's built-in honeypot -->
+                <input type="text" name="_gotcha" class="ohnohoney" tabindex="-1" autocomplete="off">
+
+                <!-- Additional honeypot with non-obvious name -->
+                <div class="ohnohoney">
                     <label for="company_url">Website</label>
                     <input type="text" name="company_url" id="company_url" tabindex="-1" autocomplete="off">
                 </div>
@@ -608,10 +605,6 @@
                     >
                 </div>
 
-                <div class="recaptcha-container">
-                    <div class="g-recaptcha" data-sitekey="6LeLungsAAAAAGmvrUy8__ZDA7QA5HeLvLwEfKoS" data-callback="onRecaptchaSuccess" data-expired-callback="onRecaptchaExpired"></div>
-                </div>
-
                 <div class="error-message" id="errorMessage">
                     Something went wrong. Please check your connection and try again.
                 </div>
@@ -646,7 +639,8 @@
 
     <script>
         let selectedCategory = null;
-        let recaptchaVerified = false;
+        // Track form start time for bot detection (bots fill forms instantly)
+        let formStartTime = null;
 
         const placeholders = {
             feedback: 'What do you like? What could be better?',
@@ -668,8 +662,9 @@
             // Update placeholder
             document.getElementById('message').placeholder = placeholders[selectedCategory];
 
-            // Show form
+            // Show form and start timing
             document.getElementById('messageForm').classList.add('visible');
+            formStartTime = Date.now();
 
             // Update submit button state
             updateSubmitButton();
@@ -678,26 +673,15 @@
         function updateSubmitButton() {
             const message = document.getElementById('message').value.trim();
             const submitBtn = document.getElementById('submitBtn');
-            const honeypot = document.getElementById('company_url').value;
 
-            // Enable button if category selected, message filled, reCAPTCHA verified, and honeypot empty
-            if (selectedCategory && message && recaptchaVerified && !honeypot) {
+            // Enable button if category selected and message filled
+            if (selectedCategory && message) {
                 submitBtn.classList.add('enabled');
                 submitBtn.disabled = false;
             } else {
                 submitBtn.classList.remove('enabled');
                 submitBtn.disabled = true;
             }
-        }
-
-        function onRecaptchaSuccess(token) {
-            recaptchaVerified = true;
-            updateSubmitButton();
-        }
-
-        function onRecaptchaExpired() {
-            recaptchaVerified = false;
-            updateSubmitButton();
         }
 
         // Listen for message input
@@ -709,10 +693,17 @@
 
             const submitBtn = document.getElementById('submitBtn');
             const errorMessage = document.getElementById('errorMessage');
-            const honeypot = document.getElementById('company_url').value;
+            const honeypot1 = document.querySelector('input[name="_gotcha"]').value;
+            const honeypot2 = document.getElementById('company_url').value;
 
-            // Check honeypot - if filled, silently "succeed" but don't actually submit
-            if (honeypot) {
+            // Bot detection: check honeypots and submission time
+            const timeTaken = Date.now() - formStartTime;
+            const isSuspiciouslyFast = timeTaken < 3000; // Less than 3 seconds
+
+            // Check honeypots - if filled, silently "succeed" but don't actually submit
+            if (honeypot1 || honeypot2 || isSuspiciouslyFast) {
+                // Add a small delay to make it look real
+                await new Promise(resolve => setTimeout(resolve, 1000));
                 showSuccess();
                 return;
             }
