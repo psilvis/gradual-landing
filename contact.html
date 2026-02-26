@@ -10,7 +10,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+    <script src="https://www.google.com/recaptcha/api.js?render=6LeLungsAAAAAGmvrUy8__ZDA7QA5HeLvLwEfKoS"></script>
     <style>
         * {
             margin: 0;
@@ -606,10 +606,6 @@
                     >
                 </div>
 
-                <div class="recaptcha-container" style="margin-bottom: 20px;">
-                    <div class="g-recaptcha" data-sitekey="6LeLungsAAAAAGmvrUy8__ZDA7QA5HeLvLwEfKoS" data-callback="onRecaptchaSuccess"></div>
-                </div>
-
                 <div class="error-message" id="errorMessage">
                     Something went wrong. Please check your connection and try again.
                 </div>
@@ -643,15 +639,10 @@
     </footer>
 
     <script>
+        const RECAPTCHA_SITE_KEY = '6LeLungsAAAAAGmvrUy8__ZDA7QA5HeLvLwEfKoS';
         let selectedCategory = null;
-        let recaptchaVerified = false;
         // Track form start time for bot detection (bots fill forms instantly)
         let formStartTime = null;
-
-        function onRecaptchaSuccess(token) {
-            recaptchaVerified = true;
-            updateSubmitButton();
-        }
 
         const placeholders = {
             feedback: 'What do you like? What could be better?',
@@ -685,8 +676,8 @@
             const message = document.getElementById('message').value.trim();
             const submitBtn = document.getElementById('submitBtn');
 
-            // Enable button if category selected, message filled, and reCAPTCHA verified
-            if (selectedCategory && message && recaptchaVerified) {
+            // Enable button if category selected and message filled
+            if (selectedCategory && message) {
                 submitBtn.classList.add('enabled');
                 submitBtn.disabled = false;
             } else {
@@ -724,7 +715,12 @@
             errorMessage.classList.remove('visible');
 
             try {
+                // Get reCAPTCHA v3 token
+                const token = await grecaptcha.execute(RECAPTCHA_SITE_KEY, { action: 'submit' });
+
                 const formData = new FormData(this);
+                formData.append('g-recaptcha-response', token);
+
                 const response = await fetch(this.action, {
                     method: 'POST',
                     body: formData,
