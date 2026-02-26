@@ -10,6 +10,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
     <style>
         * {
             margin: 0;
@@ -605,6 +606,10 @@
                     >
                 </div>
 
+                <div class="recaptcha-container" style="margin-bottom: 20px;">
+                    <div class="g-recaptcha" data-sitekey="6LeLungsAAAAAGmvrUy8__ZDA7QA5HeLvLwEfKoS" data-callback="onRecaptchaSuccess"></div>
+                </div>
+
                 <div class="error-message" id="errorMessage">
                     Something went wrong. Please check your connection and try again.
                 </div>
@@ -639,8 +644,14 @@
 
     <script>
         let selectedCategory = null;
+        let recaptchaVerified = false;
         // Track form start time for bot detection (bots fill forms instantly)
         let formStartTime = null;
+
+        function onRecaptchaSuccess(token) {
+            recaptchaVerified = true;
+            updateSubmitButton();
+        }
 
         const placeholders = {
             feedback: 'What do you like? What could be better?',
@@ -674,8 +685,8 @@
             const message = document.getElementById('message').value.trim();
             const submitBtn = document.getElementById('submitBtn');
 
-            // Enable button if category selected and message filled
-            if (selectedCategory && message) {
+            // Enable button if category selected, message filled, and reCAPTCHA verified
+            if (selectedCategory && message && recaptchaVerified) {
                 submitBtn.classList.add('enabled');
                 submitBtn.disabled = false;
             } else {
