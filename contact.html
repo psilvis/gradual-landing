@@ -10,7 +10,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-    <script src="https://www.google.com/recaptcha/api.js?render=6LeLungsAAAAAGmvrUy8__ZDA7QA5HeLvLwEfKoS"></script>
+    <script src="https://www.google.com/recaptcha/api.js"></script>
     <style>
         * {
             margin: 0;
@@ -610,7 +610,13 @@
                     Something went wrong. Please check your connection and try again.
                 </div>
 
-                <button type="submit" class="submit-btn" id="submitBtn" disabled>
+                <button type="submit"
+                    class="submit-btn g-recaptcha"
+                    id="submitBtn"
+                    data-sitekey="6LeLungsAAAAAGmvrUy8__ZDA7QA5HeLvLwEfKoS"
+                    data-callback="onFormSubmit"
+                    data-action="submit"
+                    disabled>
                     <span class="btn-text">Send Message</span>
                     <span class="spinner"></span>
                 </button>
@@ -639,7 +645,6 @@
     </footer>
 
     <script>
-        const RECAPTCHA_SITE_KEY = '6LeLungsAAAAAGmvrUy8__ZDA7QA5HeLvLwEfKoS';
         let selectedCategory = null;
         // Track form start time for bot detection (bots fill forms instantly)
         let formStartTime = null;
@@ -689,10 +694,9 @@
         // Listen for message input
         document.getElementById('message').addEventListener('input', updateSubmitButton);
 
-        // Handle form submission
-        document.getElementById('messageForm').addEventListener('submit', async function(e) {
-            e.preventDefault();
-
+        // Called by reCAPTCHA after verification
+        async function onFormSubmit(token) {
+            const form = document.getElementById('messageForm');
             const submitBtn = document.getElementById('submitBtn');
             const errorMessage = document.getElementById('errorMessage');
             const honeypot1 = document.querySelector('input[name="_gotcha"]').value;
@@ -715,13 +719,8 @@
             errorMessage.classList.remove('visible');
 
             try {
-                // Get reCAPTCHA v3 token
-                const token = await grecaptcha.execute(RECAPTCHA_SITE_KEY, { action: 'submit' });
-
-                const formData = new FormData(this);
-                formData.append('g-recaptcha-response', token);
-
-                const response = await fetch(this.action, {
+                const formData = new FormData(form);
+                const response = await fetch(form.action, {
                     method: 'POST',
                     body: formData,
                     headers: {
@@ -737,8 +736,10 @@
             } catch (error) {
                 submitBtn.classList.remove('loading');
                 errorMessage.classList.add('visible');
+                // Reset reCAPTCHA so user can try again
+                grecaptcha.reset();
             }
-        });
+        }
 
         function showSuccess() {
             const email = document.getElementById('email').value.trim();
