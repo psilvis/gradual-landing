@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Datenschutzrichtlinie - Gradual</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.7;
+            color: #1f2937;
+            background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 720px;
+            margin: 0 auto;
+            padding: 40px 24px 80px;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 48px;
+            padding-bottom: 32px;
+            border-bottom: 1px solid #e2e8f0;
+        }
+
+        .logo {
+            width: 64px;
+            height: 64px;
+            border-radius: 16px;
+            margin: 0 auto 12px;
+            box-shadow: 0 4px 14px rgba(46, 91, 255, 0.25);
+        }
+
+        .app-name {
+            font-size: 13px;
+            font-weight: 600;
+            color: #64748b;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            margin-bottom: 4px;
+        }
+
+        h1 {
+            font-size: 32px;
+            font-weight: 700;
+            color: #0f172a;
+            margin-bottom: 8px;
+        }
+
+        .subtitle {
+            color: #64748b;
+            font-size: 14px;
+        }
+
+        .last-updated {
+            display: inline-block;
+            background: #f1f5f9;
+            color: #64748b;
+            padding: 6px 12px;
+            border-radius: 20px;
+            font-size: 13px;
+            margin-top: 16px;
+        }
+
+        section {
+            background: white;
+            border-radius: 12px;
+            padding: 24px;
+            margin-bottom: 16px;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+            border: 1px solid #e2e8f0;
+        }
+
+        h2 {
+            font-size: 18px;
+            font-weight: 600;
+            color: #0f172a;
+            margin-bottom: 12px;
+        }
+
+        p {
+            color: #374151;
+            font-size: 15px;
+            margin-bottom: 12px;
+        }
+
+        p:last-child {
+            margin-bottom: 0;
+        }
+
+        ul {
+            list-style: none;
+            padding: 0;
+            margin: 12px 0;
+        }
+
+        li {
+            position: relative;
+            padding-left: 24px;
+            margin-bottom: 10px;
+            font-size: 15px;
+            color: #374151;
+        }
+
+        li:before {
+            content: "";
+            position: absolute;
+            left: 0;
+            top: 8px;
+            width: 8px;
+            height: 8px;
+            background: #2E5BFF;
+            border-radius: 50%;
+        }
+
+        li:last-child {
+            margin-bottom: 0;
+        }
+
+        .highlight {
+            background: #eff6ff;
+            border-left: 4px solid #2E5BFF;
+            padding: 16px;
+            border-radius: 0 8px 8px 0;
+            margin: 16px 0;
+        }
+
+        .highlight p {
+            margin: 0;
+            color: #1e40af;
+            font-size: 14px;
+        }
+
+        a {
+            color: #2E5BFF;
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        footer {
+            text-align: center;
+            padding-top: 32px;
+            border-top: 1px solid #e2e8f0;
+            margin-top: 48px;
+        }
+
+        footer p {
+            color: #94a3b8;
+            font-size: 13px;
+        }
+
+        .nav-links {
+            margin-top: 16px;
+        }
+
+        .nav-links a {
+            color: #64748b;
+            margin: 0 12px;
+            font-size: 14px;
+        }
+
+        @media (max-width: 640px) {
+            .container {
+                padding: 24px 16px 60px;
+            }
+
+            h1 {
+                font-size: 26px;
+            }
+
+            section {
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <img src="../icon.png" alt="Gradual" class="logo">
+            <p class="app-name">Gradual</p>
+            <h1>Datenschutzrichtlinie</h1>
+            <span class="last-updated">Zuletzt aktualisiert: 26. Februar 2025</span>
+        </header>
+
+        <section>
+            <h2>1. Überblick</h2>
+            <p>Gradual („die App") wurde mit einem datenschutzorientierten Ansatz entwickelt. Ihre Gesundheitsdaten werden sicher auf Ihrem Gerät gespeichert und über Apples iCloud-Dienst mittels CloudKit synchronisiert. Ihre Daten werden niemals auf Servern von Lawton Labs gespeichert. Bestimmte Funktionen nutzen Drittanbieterdienste, wie nachfolgend beschrieben.</p>
+        </section>
+
+        <section>
+            <h2>2. Daten, die wir erheben</h2>
+            <p>Die App erhebt und speichert die folgenden Daten lokal auf Ihrem Gerät:</p>
+            <ul>
+                <li><strong>Profilinformationen</strong> — Ihr Name und Ihre Einstellungen, die Sie während des Onboardings eingeben.</li>
+                <li><strong>Gesundheitsmetriken</strong> — Daten aus Apple HealthKit (Schritte, Herzfrequenz, HRV, Schlaf, VO2max und weitere Metriken) mit Ihrer ausdrücklichen Genehmigung.</li>
+                <li><strong>Aktivitätsdaten</strong> — Trainings- und Aktivitätsinformationen von Strava.</li>
+                <li><strong>Laborergebnisse</strong> — Biomarkerwerte, die aus von Ihnen importierten Laborberichten extrahiert werden.</li>
+                <li><strong>Nahrungsergänzungsprotokolle</strong> — Von Ihnen erstellte Nahrungsergänzungsmittel, Dosierungen und Einnahmeprotokolle.</li>
+                <li><strong>Stimmungs-Check-ins</strong> — Tägliche Stimmungs- und Stressbewertungen, die Sie erfassen.</li>
+            </ul>
+            <div class="highlight">
+                <p>Alle oben genannten Daten werden auf Ihrem Gerät verschlüsselt und sicher über Apple iCloud (CloudKit) synchronisiert. Ihre Daten werden in Ihrem persönlichen iCloud-Konto gespeichert und niemals auf Servern von Lawton Labs abgelegt.</p>
+            </div>
+        </section>
+
+        <section>
+            <h2>3. Datenweitergabe an Dritte</h2>
+            <p><strong>OpenAI (Laborberichtverarbeitung)</strong></p>
+            <p>Wenn Sie die Laborimportfunktion nutzen und die KI-Analyse wählen, wird Ihr Laborbericht-PDF an die API von OpenAI zur KI-gestützten Biomarkerextraktion gesendet. Das bedeutet:</p>
+            <ul>
+                <li>Ihr Laborbericht-PDF — das möglicherweise Ihren Namen, Biomarkerwerte, Referenzbereiche, den Labornamen und Testdaten enthält — wird zur Verarbeitung an die Server von OpenAI übermittelt.</li>
+                <li>OpenAI verarbeitet diese Daten gemäß den OpenAI API-Nutzungsbedingungen und der Datenschutzrichtlinie.</li>
+                <li>Gemäß den Datenverwendungsrichtlinien der OpenAI API werden über die API gesendete Daten nicht zum Training der Modelle von OpenAI verwendet.</li>
+                <li>Die Daten werden über eine verschlüsselte HTTPS-Verbindung übertragen.</li>
+                <li>Es werden keine Gerätekennungen oder personenbezogene Informationen über den Berichtsinhalt hinaus übermittelt.</li>
+                <li>Wenn die KI-Analyse fehlschlägt, greift die App auf einen vollständig lokalen, regex-basierten Parser zurück, der keine Daten überträgt.</li>
+            </ul>
+            <p>Sie können die Weitergabe von Labordaten an OpenAI vermeiden, indem Sie die PDF-Laborimportfunktion nicht nutzen. Die Option „Ergebnisse einfügen" verwendet einen gerätinternen Parser, der keine Daten überträgt.</p>
+        </section>
+
+        <section>
+            <h2>4. Apple HealthKit-Daten</h2>
+            <p>Gesundheitsdaten, auf die über Apple HealthKit zugegriffen wird, werden gemäß den Apple HealthKit-Richtlinien behandelt:</p>
+            <ul>
+                <li>Auf Daten wird erst zugegriffen, nachdem Sie ausdrücklich die Genehmigung erteilt haben.</li>
+                <li>HealthKit-Daten werden nur gelesen — die App schreibt keine Daten in HealthKit.</li>
+                <li>HealthKit-Daten werden über Ihr persönliches iCloud-Konto mittels Apples CloudKit synchronisiert. Diese Daten werden in Ihrem privaten iCloud-Container gespeichert und niemals auf Servern von Lawton Labs abgelegt oder an Dritte weitergegeben.</li>
+                <li>HealthKit-Daten werden niemals für Werbe- oder Marketingzwecke verwendet.</li>
+            </ul>
+        </section>
+
+        <section>
+            <h2>5. Strava-Integration</h2>
+            <p>Wenn Sie Ihr Strava-Konto verbinden:</p>
+            <ul>
+                <li>Die Authentifizierung erfolgt über OAuth 2.0 mit PKCE — die App sieht oder speichert Ihr Strava-Passwort niemals.</li>
+                <li>Es werden nur Aktivitätsdaten (Art, Dauer, Distanz, Herzfrequenz) von der Strava-API abgerufen.</li>
+                <li>Abgerufene Aktivitätsdaten werden lokal auf Ihrem Gerät zwischengespeichert.</li>
+                <li>Sie können Strava jederzeit über den Profilbildschirm trennen.</li>
+            </ul>
+        </section>
+
+        <section>
+            <h2>6. Datenspeicherung und Sicherheit</h2>
+            <ul>
+                <li>Sensible Daten (API-Schlüssel, Token, Gesundheitsdaten) werden mittels expo-secure-store gespeichert, das den iOS-Schlüsselbund für verschlüsselte Speicherung nutzt.</li>
+                <li>In SQLite gespeicherte Gesundheitsmetriken werden mit anwendungsseitiger AES-256-GCM-Verschlüsselung geschützt. Der Verschlüsselungsschlüssel wird im iOS-Schlüsselbund aufbewahrt.</li>
+                <li>Ihre Daten werden über Apples CloudKit mit Ihrem persönlichen iCloud-Konto synchronisiert. Diese Daten werden in einem privaten CloudKit-Container gespeichert, der nur für Sie zugänglich ist. Keine Gesundheitsdaten werden auf von Lawton Labs betriebenen Servern gespeichert.</li>
+                <li>Datenexport ist im JSON-Format über den Profilbildschirm verfügbar.</li>
+            </ul>
+        </section>
+
+        <section>
+            <h2>7. Datenaufbewahrung und Löschung</h2>
+            <ul>
+                <li>Alle Daten werden auf Ihrem Gerät gespeichert und mit Ihrem persönlichen iCloud-Konto synchronisiert. Die Daten bleiben bestehen, bis Sie sie löschen.</li>
+                <li>Sie können jederzeit alle Daten über die Option „Alle Daten löschen" im Profilbildschirm löschen. Dadurch werden die Daten von Ihrem Gerät und aus iCloud entfernt.</li>
+                <li>Durch die Deinstallation der App werden alle lokal gespeicherten Daten entfernt. Daten in Ihrem iCloud-Konto können bestehen bleiben, bis sie über die App oder die iCloud-Einstellungen gelöscht werden.</li>
+                <li>An OpenAI zur Laboranalyse gesendete Daten werden vorübergehend verarbeitet und gemäß den Datenverwendungsrichtlinien der OpenAI API nicht von OpenAI zu Trainingszwecken aufbewahrt.</li>
+            </ul>
+        </section>
+
+        <section>
+            <h2>8. Datenschutz für Kinder</h2>
+            <p>Die App ist nicht für die Nutzung durch Personen unter 13 Jahren bestimmt. Wir erheben wissentlich keine personenbezogenen Daten von Kindern unter 13 Jahren.</p>
+        </section>
+
+        <section>
+            <h2>9. Analytik und Fehlerverfolgung</h2>
+            <p>Die App nutzt die folgenden Dienste für Analytik und Fehlerverfolgung:</p>
+            <ul>
+                <li><strong>Amplitude</strong> — Anonyme Nutzungsanalytik, um zu verstehen, wie Funktionen verwendet werden, und die App zu verbessern. Es werden keine Gesundheitsdaten oder personenbezogene Informationen an Amplitude gesendet.</li>
+                <li><strong>Sentry</strong> — Absturz- und Fehlerberichte zur Identifizierung und Behebung von Fehlern. Fehlerberichte können Gerätetyp, Betriebssystemversion und Stack-Traces enthalten, beinhalten jedoch nicht Ihre Gesundheitsdaten.</li>
+            </ul>
+            <p>Keiner dieser Dienste erhält Ihre Gesundheitsdaten, Biomarker oder personenbezogene Gesundheitsinformationen.</p>
+        </section>
+
+        <section>
+            <h2>10. Änderungen dieser Richtlinie</h2>
+            <p>Wir können diese Datenschutzrichtlinie von Zeit zu Zeit aktualisieren. Über wesentliche Änderungen werden wir Sie über die App informieren. Die fortgesetzte Nutzung der App nach Änderungen gilt als Annahme der aktualisierten Richtlinie.</p>
+        </section>
+
+        <section>
+            <h2>11. Ihre Rechte</h2>
+            <p>Sie haben das Recht:</p>
+            <ul>
+                <li>Auf alle in der App gespeicherten Daten zuzugreifen.</li>
+                <li>Ihre Daten in einem portablen Format (JSON) zu exportieren.</li>
+                <li>Alle Ihre Daten jederzeit zu löschen.</li>
+                <li>Jeden Drittanbieterdienst jederzeit zu trennen.</li>
+                <li>Funktionen, die eine Datenverarbeitung durch Dritte beinhalten (Laborimport), nicht zu nutzen.</li>
+            </ul>
+        </section>
+
+        <section>
+            <h2>12. Kontakt</h2>
+            <p>Bei Fragen zu dieser Datenschutzrichtlinie oder Ihren Daten kontaktieren Sie uns bitte unter <a href="mailto:lawtonlabsapps@gmail.com">lawtonlabsapps@gmail.com</a>.</p>
+        </section>
+
+        <footer>
+            <p>&copy; 2025 Lawton Labs. Alle Rechte vorbehalten.</p>
+            <div class="nav-links">
+                <a href="../index.html">Startseite</a>
+                <a href="terms-of-service.html">Nutzungsbedingungen</a>
+            </div>
+        </footer>
+    </div>
+</body>
+</html>

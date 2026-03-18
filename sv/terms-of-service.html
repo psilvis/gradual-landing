@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Användarvillkor - Gradual</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.7;
+            color: #1f2937;
+            background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 720px;
+            margin: 0 auto;
+            padding: 40px 24px 80px;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 48px;
+            padding-bottom: 32px;
+            border-bottom: 1px solid #e2e8f0;
+        }
+
+        .logo {
+            width: 64px;
+            height: 64px;
+            border-radius: 16px;
+            margin: 0 auto 12px;
+            box-shadow: 0 4px 14px rgba(46, 91, 255, 0.25);
+        }
+
+        .app-name {
+            font-size: 13px;
+            font-weight: 600;
+            color: #64748b;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            margin-bottom: 4px;
+        }
+
+        h1 {
+            font-size: 32px;
+            font-weight: 700;
+            color: #0f172a;
+            margin-bottom: 8px;
+        }
+
+        .subtitle {
+            color: #64748b;
+            font-size: 14px;
+        }
+
+        .last-updated {
+            display: inline-block;
+            background: #f1f5f9;
+            color: #64748b;
+            padding: 6px 12px;
+            border-radius: 20px;
+            font-size: 13px;
+            margin-top: 16px;
+        }
+
+        section {
+            background: white;
+            border-radius: 12px;
+            padding: 24px;
+            margin-bottom: 16px;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+            border: 1px solid #e2e8f0;
+        }
+
+        h2 {
+            font-size: 18px;
+            font-weight: 600;
+            color: #0f172a;
+            margin-bottom: 12px;
+        }
+
+        p {
+            color: #374151;
+            font-size: 15px;
+            margin-bottom: 12px;
+        }
+
+        p:last-child {
+            margin-bottom: 0;
+        }
+
+        ul {
+            list-style: none;
+            padding: 0;
+            margin: 12px 0;
+        }
+
+        li {
+            position: relative;
+            padding-left: 24px;
+            margin-bottom: 10px;
+            font-size: 15px;
+            color: #374151;
+        }
+
+        li:before {
+            content: "";
+            position: absolute;
+            left: 0;
+            top: 8px;
+            width: 8px;
+            height: 8px;
+            background: #2E5BFF;
+            border-radius: 50%;
+        }
+
+        li:last-child {
+            margin-bottom: 0;
+        }
+
+        .highlight {
+            background: #fef3c7;
+            border-left: 4px solid #f59e0b;
+            padding: 16px;
+            border-radius: 0 8px 8px 0;
+            margin: 16px 0;
+        }
+
+        .highlight p {
+            margin: 0;
+            color: #92400e;
+            font-size: 14px;
+        }
+
+        a {
+            color: #2E5BFF;
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        footer {
+            text-align: center;
+            padding-top: 32px;
+            border-top: 1px solid #e2e8f0;
+            margin-top: 48px;
+        }
+
+        footer p {
+            color: #94a3b8;
+            font-size: 13px;
+        }
+
+        .nav-links {
+            margin-top: 16px;
+        }
+
+        .nav-links a {
+            color: #64748b;
+            margin: 0 12px;
+            font-size: 14px;
+        }
+
+        @media (max-width: 640px) {
+            .container {
+                padding: 24px 16px 60px;
+            }
+
+            h1 {
+                font-size: 26px;
+            }
+
+            section {
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <img src="../icon.png" alt="Gradual" class="logo">
+            <p class="app-name">Gradual</p>
+            <h1>Användarvillkor</h1>
+            <span class="last-updated">Senast uppdaterad: 26 februari 2025</span>
+        </header>
+
+        <section>
+            <h2>1. Godkännande av villkor</h2>
+            <p>Genom att ladda ner, installera eller använda Gradual ("appen") godkänner du dessa användarvillkor ("villkoren"). Dessa villkor kompletterar <a href="https://www.apple.com/legal/internet-services/itunes/dev/stdeula/" target="_blank">Apples licensavtal för slutanvändare av licensierade applikationer</a>, som reglerar din licens att använda appen. Om du inte godkänner dessa villkor, använd inte appen.</p>
+        </section>
+
+        <section>
+            <h2>2. Beskrivning av tjänsten</h2>
+            <p>Gradual är en personlig hälsospårningsapplikation som aggregerar hälsodata från flera källor, inklusive Apple HealthKit, Strava och manuellt inmatade labbrapporter. Appen beräknar ett sammansatt Gradual Age och hjälper dig att spåra tillskottsprotokoll, biomarkörer och träningsmått.</p>
+        </section>
+
+        <section>
+            <h2>3. Inte medicinsk rådgivning</h2>
+            <div class="highlight">
+                <p><strong>Viktigt:</strong> Appen är utformad enbart för informations- och hälsospårningssyften. Inget i appen utgör medicinsk rådgivning, diagnos eller behandling.</p>
+            </div>
+            <p>Gradual Age, biomarkörsanalys och all annan presenterad data är inte substitut för professionell medicinsk rådgivning. Rådfråga alltid en kvalificerad vårdgivare innan du fattar beslut om din hälsa, mediciner eller tillskottsprotokoll.</p>
+        </section>
+
+        <section>
+            <h2>4. Användarkonton och data</h2>
+            <p>Du ansvarar för riktigheten av all data du matar in i appen, inklusive labbresultat och tillskottsinformation. Dina hälsodata lagras lokalt på din enhet med krypterad lagring (expo-secure-store) och synkroniseras till ditt personliga iCloud-konto via Apples CloudKit. Du kan exportera eller radera dina data när som helst från profilskärmen.</p>
+        </section>
+
+        <section>
+            <h2>5. Tredjepartstjänster</h2>
+            <p>Appen integreras med följande tredjepartstjänster. Din användning av dessa integrationer omfattas av respektive tjänsts egna villkor:</p>
+            <ul>
+                <li><strong>Apple HealthKit</strong> — Hälso- och träningsdata läses med ditt uttryckliga tillstånd. Dessa data synkroniseras via ditt personliga iCloud-konto och lagras inte på Lawton Labs servrar.</li>
+                <li><strong>Strava</strong> — Aktivitetsdata nås via OAuth 2.0 med PKCE-autentisering. Endast aktivitetsdata som du godkänner hämtas.</li>
+                <li><strong>OpenAI</strong> — När du importerar en labbrapport och väljer AI-analys skickas din labbrapport-PDF till OpenAI:s API för AI-driven biomarkörextraktion. Se vår <a href="privacy-policy.html">integritetspolicy</a> för detaljer om hur dessa data hanteras.</li>
+            </ul>
+        </section>
+
+        <section>
+            <h2>6. Bearbetning av labbrapporter</h2>
+            <p>När du importerar en labbrapport använder appen två metoder för att extrahera biomarkördata:</p>
+            <ul>
+                <li><strong>Lokal analys</strong> — En regex-baserad parser körs helt på din enhet utan extern dataöverföring.</li>
+                <li><strong>AI-driven analys</strong> — Din labbrapport-PDF skickas till OpenAI:s API för mer exakt extraktion. OpenAI bearbetar dessa data enligt sina egna API-användarvillkor och integritetspolicy. Den lokala parsern finns tillgänglig som reserv om AI-analysen misslyckas.</li>
+            </ul>
+            <p>När du importerar en labbrapport-PDF visas en samtyckesdialog innan några data skickas. Om du inte vill dela labbdata med OpenAI kan du istället använda alternativet "Klistra in resultat", som analyserar helt på enheten.</p>
+        </section>
+
+        <section>
+            <h2>7. Immateriella rättigheter</h2>
+            <p>Appen, inklusive dess design, kod och innehåll, tillhör Lawton Labs och skyddas av tillämplig immaterialrättslagstiftning. Du beviljas en begränsad, icke-exklusiv, icke-överlåtbar licens att använda appen för personligt, icke-kommersiellt bruk.</p>
+        </section>
+
+        <section>
+            <h2>8. Ansvarsbegränsning</h2>
+            <p>I den utsträckning tillämplig lag tillåter ska Lawton Labs inte hållas ansvarig för indirekta, tillfälliga, speciella, följd- eller straffskador, inklusive men inte begränsat till förlust av data, hälsoutfall eller beslut fattade baserat på information som tillhandahålls av appen. Appen tillhandahålls "i befintligt skick" utan garantier av något slag, varken uttryckliga eller underförstådda.</p>
+        </section>
+
+        <section>
+            <h2>9. Datanoggrannhet</h2>
+            <p>Även om appen strävar efter noggrannhet vid analys av labbrapporter och beräkning av hälsomått, garanterar vi inte noggrannheten, fullständigheten eller tillförlitligheten av data som bearbetas av appen. AI-driven labbanalys kan ibland feltolka värden eller missa biomarkörer. Verifiera alltid analyserade resultat mot din ursprungliga labbrapport.</p>
+        </section>
+
+        <section>
+            <h2>10. Ändringar av villkoren</h2>
+            <p>Vi förbehåller oss rätten att ändra dessa villkor när som helst. Fortsatt användning av appen efter ändringar utgör godkännande av de uppdaterade villkoren. Vi meddelar dig om väsentliga ändringar via appen.</p>
+        </section>
+
+        <section>
+            <h2>11. Uppsägning</h2>
+            <p>Du kan sluta använda appen när som helst. Du kan radera all din data från profilskärmen. Vi förbehåller oss rätten att avsluta eller tillfälligt stänga av åtkomsten till appen vid överträdelser av dessa villkor.</p>
+        </section>
+
+        <section>
+            <h2>12. Kontakt</h2>
+            <p>Vid frågor om dessa villkor, kontakta oss på <a href="mailto:lawtonlabsapps@gmail.com">lawtonlabsapps@gmail.com</a>.</p>
+        </section>
+
+        <footer>
+            <p>&copy; 2025 Lawton Labs. Alla rättigheter förbehållna.</p>
+            <div class="nav-links">
+                <a href="../index.html">Hem</a>
+                <a href="privacy-policy.html">Integritetspolicy</a>
+            </div>
+        </footer>
+    </div>
+</body>
+</html>

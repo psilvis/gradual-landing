@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Integritetspolicy - Gradual</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.7;
+            color: #1f2937;
+            background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 720px;
+            margin: 0 auto;
+            padding: 40px 24px 80px;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 48px;
+            padding-bottom: 32px;
+            border-bottom: 1px solid #e2e8f0;
+        }
+
+        .logo {
+            width: 64px;
+            height: 64px;
+            border-radius: 16px;
+            margin: 0 auto 12px;
+            box-shadow: 0 4px 14px rgba(46, 91, 255, 0.25);
+        }
+
+        .app-name {
+            font-size: 13px;
+            font-weight: 600;
+            color: #64748b;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            margin-bottom: 4px;
+        }
+
+        h1 {
+            font-size: 32px;
+            font-weight: 700;
+            color: #0f172a;
+            margin-bottom: 8px;
+        }
+
+        .subtitle {
+            color: #64748b;
+            font-size: 14px;
+        }
+
+        .last-updated {
+            display: inline-block;
+            background: #f1f5f9;
+            color: #64748b;
+            padding: 6px 12px;
+            border-radius: 20px;
+            font-size: 13px;
+            margin-top: 16px;
+        }
+
+        section {
+            background: white;
+            border-radius: 12px;
+            padding: 24px;
+            margin-bottom: 16px;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+            border: 1px solid #e2e8f0;
+        }
+
+        h2 {
+            font-size: 18px;
+            font-weight: 600;
+            color: #0f172a;
+            margin-bottom: 12px;
+        }
+
+        p {
+            color: #374151;
+            font-size: 15px;
+            margin-bottom: 12px;
+        }
+
+        p:last-child {
+            margin-bottom: 0;
+        }
+
+        ul {
+            list-style: none;
+            padding: 0;
+            margin: 12px 0;
+        }
+
+        li {
+            position: relative;
+            padding-left: 24px;
+            margin-bottom: 10px;
+            font-size: 15px;
+            color: #374151;
+        }
+
+        li:before {
+            content: "";
+            position: absolute;
+            left: 0;
+            top: 8px;
+            width: 8px;
+            height: 8px;
+            background: #2E5BFF;
+            border-radius: 50%;
+        }
+
+        li:last-child {
+            margin-bottom: 0;
+        }
+
+        .highlight {
+            background: #eff6ff;
+            border-left: 4px solid #2E5BFF;
+            padding: 16px;
+            border-radius: 0 8px 8px 0;
+            margin: 16px 0;
+        }
+
+        .highlight p {
+            margin: 0;
+            color: #1e40af;
+            font-size: 14px;
+        }
+
+        a {
+            color: #2E5BFF;
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        footer {
+            text-align: center;
+            padding-top: 32px;
+            border-top: 1px solid #e2e8f0;
+            margin-top: 48px;
+        }
+
+        footer p {
+            color: #94a3b8;
+            font-size: 13px;
+        }
+
+        .nav-links {
+            margin-top: 16px;
+        }
+
+        .nav-links a {
+            color: #64748b;
+            margin: 0 12px;
+            font-size: 14px;
+        }
+
+        @media (max-width: 640px) {
+            .container {
+                padding: 24px 16px 60px;
+            }
+
+            h1 {
+                font-size: 26px;
+            }
+
+            section {
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <img src="../icon.png" alt="Gradual" class="logo">
+            <p class="app-name">Gradual</p>
+            <h1>Integritetspolicy</h1>
+            <span class="last-updated">Senast uppdaterad: 26 februari 2025</span>
+        </header>
+
+        <section>
+            <h2>1. Översikt</h2>
+            <p>Gradual ("appen") är byggd med ett integritetsfokuserat tillvägagångssätt. Dina hälsodata lagras säkert på din enhet och synkroniseras via Apples iCloud-tjänst med CloudKit. Dina data lagras aldrig på Lawton Labs servrar. Vissa funktioner använder tredjepartstjänster enligt beskrivningen nedan.</p>
+        </section>
+
+        <section>
+            <h2>2. Data vi samlar in</h2>
+            <p>Appen samlar in och lagrar följande data lokalt på din enhet:</p>
+            <ul>
+                <li><strong>Profilinformation</strong> — Ditt namn och dina inställningar som du anger under introduktionen.</li>
+                <li><strong>Hälsomått</strong> — Data från Apple HealthKit (steg, hjärtfrekvens, HRV, sömn, VO2max och andra mått) med ditt uttryckliga tillstånd.</li>
+                <li><strong>Aktivitetsdata</strong> — Tränings- och aktivitetsinformation från Strava.</li>
+                <li><strong>Labbresultat</strong> — Biomarkörsvärden som extraherats från labbrapporter du importerar.</li>
+                <li><strong>Tillskottsprotokoll</strong> — Kosttillskott, doseringar och följsamhetsloggar som du skapar.</li>
+                <li><strong>Humörcheckar</strong> — Dagliga humör- och stressbedömningar som du registrerar.</li>
+            </ul>
+            <div class="highlight">
+                <p>Allt ovanstående krypteras på enheten och synkroniseras säkert via Apple iCloud (CloudKit). Dina data lagras i ditt personliga iCloud-konto och lagras aldrig på Lawton Labs servrar.</p>
+            </div>
+        </section>
+
+        <section>
+            <h2>3. Data som delas med tredje part</h2>
+            <p><strong>OpenAI (bearbetning av labbrapporter)</strong></p>
+            <p>När du använder labbimportfunktionen och väljer AI-analys skickas din labbrapport-PDF till OpenAI:s API för AI-driven biomarkörextraktion. Det innebär:</p>
+            <ul>
+                <li>Din labbrapport-PDF — som kan innehålla ditt namn, biomarkörsvärden, referensintervall, labbnamn och testdatum — överförs till OpenAI:s servrar för bearbetning.</li>
+                <li>OpenAI bearbetar dessa data i enlighet med OpenAI:s API-användarvillkor och integritetspolicy.</li>
+                <li>Enligt OpenAI:s policy för API-dataanvändning används data som skickas via API:et inte för att träna OpenAI:s modeller.</li>
+                <li>Data överförs via krypterad HTTPS-anslutning.</li>
+                <li>Inga enhetsidentifierare eller personlig information utöver rapportinnehållet överförs.</li>
+                <li>Om AI-analysen misslyckas faller appen tillbaka till en helt lokal regex-baserad parser som inte överför några data.</li>
+            </ul>
+            <p>Du kan undvika att dela labbdata med OpenAI genom att inte använda PDF-labbimportfunktionen. Alternativet "Klistra in resultat" använder en parser på enheten som inte överför några data.</p>
+        </section>
+
+        <section>
+            <h2>4. Apple HealthKit-data</h2>
+            <p>Hälsodata som nås via Apple HealthKit hanteras enligt Apples HealthKit-riktlinjer:</p>
+            <ul>
+                <li>Data nås först efter att du har gett uttryckligt tillstånd.</li>
+                <li>HealthKit-data läses enbart — appen skriver inte data till HealthKit.</li>
+                <li>HealthKit-data synkroniseras via ditt personliga iCloud-konto med Apples CloudKit. Dessa data lagras i din privata iCloud-container och lagras aldrig på Lawton Labs servrar eller överförs till tredje part.</li>
+                <li>HealthKit-data används aldrig i reklam- eller marknadsföringssyfte.</li>
+            </ul>
+        </section>
+
+        <section>
+            <h2>5. Strava-integration</h2>
+            <p>När du ansluter ditt Strava-konto:</p>
+            <ul>
+                <li>Autentisering sker via OAuth 2.0 med PKCE — appen ser eller lagrar aldrig ditt Strava-lösenord.</li>
+                <li>Endast aktivitetsdata (typ, varaktighet, distans, hjärtfrekvens) hämtas från Stravas API.</li>
+                <li>Hämtad aktivitetsdata cachelagras lokalt på din enhet.</li>
+                <li>Du kan koppla bort Strava när som helst från profilskärmen.</li>
+            </ul>
+        </section>
+
+        <section>
+            <h2>6. Datalagring och säkerhet</h2>
+            <ul>
+                <li>Känsliga data (API-nycklar, token, hälsodata) lagras med expo-secure-store, som använder iOS-nyckelringen för krypterad lagring.</li>
+                <li>Hälsomått som lagras i SQLite krypteras med AES-256-GCM på applikationsnivå. Krypteringsnyckeln lagras i iOS-nyckelringen.</li>
+                <li>Dina data synkroniseras till ditt personliga iCloud-konto via Apples CloudKit. Dessa data lagras i en privat CloudKit-container som bara du har tillgång till. Inga hälsodata lagras på servrar som drivs av Lawton Labs.</li>
+                <li>Dataexport finns tillgänglig i JSON-format från profilskärmen.</li>
+            </ul>
+        </section>
+
+        <section>
+            <h2>7. Datalagring och radering</h2>
+            <ul>
+                <li>All data lagras på din enhet och synkroniseras till ditt personliga iCloud-konto. Data finns kvar tills du raderar den.</li>
+                <li>Du kan radera all data när som helst med alternativet "Radera all data" på profilskärmen. Detta tar bort data från din enhet och iCloud.</li>
+                <li>Avinstallation av appen tar bort all lokalt lagrad data. Data i ditt iCloud-konto kan finnas kvar tills den raderas via appen eller iCloud-inställningarna.</li>
+                <li>Data som skickas till OpenAI för labbanalys bearbetas tillfälligt och behålls inte av OpenAI för modellträning, enligt OpenAI:s policy för API-dataanvändning.</li>
+            </ul>
+        </section>
+
+        <section>
+            <h2>8. Barns integritet</h2>
+            <p>Appen är inte avsedd för användning av personer under 13 år. Vi samlar inte medvetet in personuppgifter från barn under 13 år.</p>
+        </section>
+
+        <section>
+            <h2>9. Analys och felspårning</h2>
+            <p>Appen använder följande tjänster för analys och felspårning:</p>
+            <ul>
+                <li><strong>Amplitude</strong> — Anonym användningsanalys för att hjälpa oss förstå hur funktioner används och förbättra appen. Inga hälsodata eller personligt identifierbar information skickas till Amplitude.</li>
+                <li><strong>Sentry</strong> — Krasch- och felrapportering för att hjälpa oss identifiera och åtgärda buggar. Felrapporter kan innehålla enhetstyp, OS-version och stack traces, men innehåller inte dina hälsodata.</li>
+            </ul>
+            <p>Ingen av dessa tjänster tar emot dina hälsodata, biomarkörer eller personligt identifierbar hälsoinformation.</p>
+        </section>
+
+        <section>
+            <h2>10. Ändringar av denna policy</h2>
+            <p>Vi kan uppdatera denna integritetspolicy från tid till annan. Vi meddelar dig om väsentliga ändringar via appen. Fortsatt användning av appen efter ändringar utgör godkännande av den uppdaterade policyn.</p>
+        </section>
+
+        <section>
+            <h2>11. Dina rättigheter</h2>
+            <p>Du har rätt att:</p>
+            <ul>
+                <li>Få tillgång till all din data som lagras i appen.</li>
+                <li>Exportera dina data i ett portabelt format (JSON).</li>
+                <li>Radera all din data när som helst.</li>
+                <li>Koppla bort alla tredjepartstjänster när som helst.</li>
+                <li>Välja att inte använda funktioner som involverar tredjepartsbearbetning av data (labbimport).</li>
+            </ul>
+        </section>
+
+        <section>
+            <h2>12. Kontakt</h2>
+            <p>Vid frågor om denna integritetspolicy eller dina data, kontakta oss på <a href="mailto:lawtonlabsapps@gmail.com">lawtonlabsapps@gmail.com</a>.</p>
+        </section>
+
+        <footer>
+            <p>&copy; 2025 Lawton Labs. Alla rättigheter förbehållna.</p>
+            <div class="nav-links">
+                <a href="../index.html">Hem</a>
+                <a href="terms-of-service.html">Användarvillkor</a>
+            </div>
+        </footer>
+    </div>
+</body>
+</html>
