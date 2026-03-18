@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pol&iacute;tica de Privacidad - Gradual</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.7;
+            color: #1f2937;
+            background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 720px;
+            margin: 0 auto;
+            padding: 40px 24px 80px;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 48px;
+            padding-bottom: 32px;
+            border-bottom: 1px solid #e2e8f0;
+        }
+
+        .logo {
+            width: 64px;
+            height: 64px;
+            border-radius: 16px;
+            margin: 0 auto 12px;
+            box-shadow: 0 4px 14px rgba(46, 91, 255, 0.25);
+        }
+
+        .app-name {
+            font-size: 13px;
+            font-weight: 600;
+            color: #64748b;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            margin-bottom: 4px;
+        }
+
+        h1 {
+            font-size: 32px;
+            font-weight: 700;
+            color: #0f172a;
+            margin-bottom: 8px;
+        }
+
+        .subtitle {
+            color: #64748b;
+            font-size: 14px;
+        }
+
+        .last-updated {
+            display: inline-block;
+            background: #f1f5f9;
+            color: #64748b;
+            padding: 6px 12px;
+            border-radius: 20px;
+            font-size: 13px;
+            margin-top: 16px;
+        }
+
+        section {
+            background: white;
+            border-radius: 12px;
+            padding: 24px;
+            margin-bottom: 16px;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+            border: 1px solid #e2e8f0;
+        }
+
+        h2 {
+            font-size: 18px;
+            font-weight: 600;
+            color: #0f172a;
+            margin-bottom: 12px;
+        }
+
+        p {
+            color: #374151;
+            font-size: 15px;
+            margin-bottom: 12px;
+        }
+
+        p:last-child {
+            margin-bottom: 0;
+        }
+
+        ul {
+            list-style: none;
+            padding: 0;
+            margin: 12px 0;
+        }
+
+        li {
+            position: relative;
+            padding-left: 24px;
+            margin-bottom: 10px;
+            font-size: 15px;
+            color: #374151;
+        }
+
+        li:before {
+            content: "";
+            position: absolute;
+            left: 0;
+            top: 8px;
+            width: 8px;
+            height: 8px;
+            background: #2E5BFF;
+            border-radius: 50%;
+        }
+
+        li:last-child {
+            margin-bottom: 0;
+        }
+
+        .highlight {
+            background: #eff6ff;
+            border-left: 4px solid #2E5BFF;
+            padding: 16px;
+            border-radius: 0 8px 8px 0;
+            margin: 16px 0;
+        }
+
+        .highlight p {
+            margin: 0;
+            color: #1e40af;
+            font-size: 14px;
+        }
+
+        a {
+            color: #2E5BFF;
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        footer {
+            text-align: center;
+            padding-top: 32px;
+            border-top: 1px solid #e2e8f0;
+            margin-top: 48px;
+        }
+
+        footer p {
+            color: #94a3b8;
+            font-size: 13px;
+        }
+
+        .nav-links {
+            margin-top: 16px;
+        }
+
+        .nav-links a {
+            color: #64748b;
+            margin: 0 12px;
+            font-size: 14px;
+        }
+
+        @media (max-width: 640px) {
+            .container {
+                padding: 24px 16px 60px;
+            }
+
+            h1 {
+                font-size: 26px;
+            }
+
+            section {
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <img src="../icon.png" alt="Gradual" class="logo">
+            <p class="app-name">Gradual</p>
+            <h1>Pol&iacute;tica de Privacidad</h1>
+            <span class="last-updated">&Uacute;ltima actualizaci&oacute;n: 26 de febrero de 2025</span>
+        </header>
+
+        <section>
+            <h2>1. Descripci&oacute;n general</h2>
+            <p>Gradual ("la App") est&aacute; desarrollada con un enfoque de privacidad ante todo. Tus datos de salud se almacenan de forma segura en tu dispositivo y se sincronizan a trav&eacute;s del servicio iCloud de Apple mediante CloudKit. Tus datos nunca se almacenan en los servidores de Lawton Labs. Ciertas funciones involucran servicios de terceros, como se describe a continuaci&oacute;n.</p>
+        </section>
+
+        <section>
+            <h2>2. Datos que recopilamos</h2>
+            <p>La App recopila y almacena los siguientes datos localmente en tu dispositivo:</p>
+            <ul>
+                <li><strong>Informaci&oacute;n de perfil</strong> &mdash; Tu nombre y preferencias ingresados durante la configuraci&oacute;n inicial.</li>
+                <li><strong>M&eacute;tricas de salud</strong> &mdash; Datos de Apple HealthKit (pasos, frecuencia card&iacute;aca, VFC, sue&ntilde;o, VO2max y otras m&eacute;tricas) con tu permiso expl&iacute;cito.</li>
+                <li><strong>Datos de actividad</strong> &mdash; Informaci&oacute;n de entrenamientos y actividades de Strava.</li>
+                <li><strong>Resultados de laboratorio</strong> &mdash; Valores de biomarcadores extra&iacute;dos de los informes de laboratorio que importas.</li>
+                <li><strong>Protocolos de suplementos</strong> &mdash; Suplementos, dosis y registros de adherencia que creas.</li>
+                <li><strong>Registros de estado de &aacute;nimo</strong> &mdash; Calificaciones diarias de estado de &aacute;nimo y estr&eacute;s que registras.</li>
+            </ul>
+            <div class="highlight">
+                <p>Todo lo anterior se cifra en el dispositivo y se sincroniza de forma segura a trav&eacute;s de Apple iCloud (CloudKit). Tus datos se almacenan en tu cuenta personal de iCloud y nunca se almacenan en los servidores de Lawton Labs.</p>
+            </div>
+        </section>
+
+        <section>
+            <h2>3. Datos compartidos con terceros</h2>
+            <p><strong>OpenAI (Procesamiento de informes de laboratorio)</strong></p>
+            <p>Cuando utilizas la funci&oacute;n de importaci&oacute;n de laboratorio y eliges el an&aacute;lisis con IA, tu informe de laboratorio en PDF se env&iacute;a a la API de OpenAI para la extracci&oacute;n de biomarcadores impulsada por IA. Esto significa:</p>
+            <ul>
+                <li>Tu informe de laboratorio en PDF &mdash; que puede incluir tu nombre, valores de biomarcadores, rangos de referencia, nombre del laboratorio y fechas de las pruebas &mdash; se transmite a los servidores de OpenAI para su procesamiento.</li>
+                <li>OpenAI procesa estos datos de acuerdo con los T&eacute;rminos de Uso y la Pol&iacute;tica de Privacidad de la API de OpenAI.</li>
+                <li>Seg&uacute;n la pol&iacute;tica de uso de datos de la API de OpenAI, los datos enviados a trav&eacute;s de la API no se utilizan para entrenar los modelos de OpenAI.</li>
+                <li>Los datos se transmiten a trav&eacute;s de una conexi&oacute;n HTTPS cifrada.</li>
+                <li>No se transmiten identificadores de dispositivo ni informaci&oacute;n personal m&aacute;s all&aacute; del contenido del informe.</li>
+                <li>Si el analizador de IA falla, la App recurre a un analizador local basado en expresiones regulares que no transmite ning&uacute;n dato.</li>
+            </ul>
+            <p>Puedes evitar compartir datos de laboratorio con OpenAI al no utilizar la funci&oacute;n de importaci&oacute;n de PDF de laboratorio. La opci&oacute;n "Pegar resultados" utiliza un analizador en el dispositivo que no transmite ning&uacute;n dato.</p>
+        </section>
+
+        <section>
+            <h2>4. Datos de Apple HealthKit</h2>
+            <p>Los datos de salud a los que se accede a trav&eacute;s de Apple HealthKit se manejan de acuerdo con las directrices de Apple HealthKit:</p>
+            <ul>
+                <li>Solo se accede a los datos despu&eacute;s de que otorgues permiso expl&iacute;cito.</li>
+                <li>Los datos de HealthKit son de solo lectura &mdash; la App no escribe datos en HealthKit.</li>
+                <li>Los datos de HealthKit se sincronizan a trav&eacute;s de tu cuenta personal de iCloud mediante CloudKit de Apple. Estos datos se almacenan en tu contenedor privado de iCloud y nunca se almacenan en los servidores de Lawton Labs ni se transmiten a terceros.</li>
+                <li>Los datos de HealthKit nunca se utilizan con fines publicitarios o de marketing.</li>
+            </ul>
+        </section>
+
+        <section>
+            <h2>5. Integraci&oacute;n con Strava</h2>
+            <p>Cuando conectas tu cuenta de Strava:</p>
+            <ul>
+                <li>La autenticaci&oacute;n utiliza OAuth 2.0 con PKCE &mdash; la App nunca ve ni almacena tu contrase&ntilde;a de Strava.</li>
+                <li>Solo se recuperan datos de actividad (tipo, duraci&oacute;n, distancia, frecuencia card&iacute;aca) de la API de Strava.</li>
+                <li>Los datos de actividad recuperados se almacenan en cach&eacute; localmente en tu dispositivo.</li>
+                <li>Puedes desconectar Strava en cualquier momento desde la pantalla de Perfil.</li>
+            </ul>
+        </section>
+
+        <section>
+            <h2>6. Almacenamiento y seguridad de datos</h2>
+            <ul>
+                <li>Los datos sensibles (claves API, tokens, datos de salud) se almacenan utilizando expo-secure-store, que usa el Llavero de iOS para almacenamiento cifrado.</li>
+                <li>Las m&eacute;tricas de salud almacenadas en SQLite se cifran con AES-256-GCM a nivel de aplicaci&oacute;n. La clave de cifrado se almacena en el Llavero de iOS.</li>
+                <li>Tus datos se sincronizan con tu cuenta personal de iCloud a trav&eacute;s de CloudKit de Apple. Estos datos se almacenan en un contenedor privado de CloudKit accesible solo para ti. Ning&uacute;n dato de salud se almacena en servidores operados por Lawton Labs.</li>
+                <li>La exportaci&oacute;n de datos est&aacute; disponible en formato JSON desde la pantalla de Perfil.</li>
+            </ul>
+        </section>
+
+        <section>
+            <h2>7. Retenci&oacute;n y eliminaci&oacute;n de datos</h2>
+            <ul>
+                <li>Todos los datos se almacenan en tu dispositivo y se sincronizan con tu cuenta personal de iCloud. Los datos persisten hasta que los elimines.</li>
+                <li>Puedes eliminar todos los datos en cualquier momento usando la opci&oacute;n "Eliminar todos los datos" en la pantalla de Perfil. Esto elimina los datos de tu dispositivo y de iCloud.</li>
+                <li>Desinstalar la App elimina todos los datos almacenados localmente. Los datos en tu cuenta de iCloud pueden persistir hasta que se eliminen a trav&eacute;s de la App o la configuraci&oacute;n de iCloud.</li>
+                <li>Los datos enviados a OpenAI para el an&aacute;lisis de laboratorio se procesan de forma transitoria y no son retenidos por OpenAI con fines de entrenamiento de modelos, seg&uacute;n las pol&iacute;ticas de uso de datos de la API de OpenAI.</li>
+            </ul>
+        </section>
+
+        <section>
+            <h2>8. Privacidad de menores</h2>
+            <p>La App no est&aacute; destinada al uso por personas menores de 13 a&ntilde;os. No recopilamos intencionalmente informaci&oacute;n personal de menores de 13 a&ntilde;os.</p>
+        </section>
+
+        <section>
+            <h2>9. An&aacute;lisis y seguimiento de errores</h2>
+            <p>La App utiliza los siguientes servicios para an&aacute;lisis y seguimiento de errores:</p>
+            <ul>
+                <li><strong>Amplitude</strong> &mdash; An&aacute;lisis de uso an&oacute;nimo para ayudarnos a comprender c&oacute;mo se utilizan las funciones y mejorar la App. No se env&iacute;an datos de salud ni informaci&oacute;n de identificaci&oacute;n personal a Amplitude.</li>
+                <li><strong>Sentry</strong> &mdash; Informes de fallos y errores para ayudarnos a identificar y corregir problemas. Los informes de errores pueden incluir tipo de dispositivo, versi&oacute;n del sistema operativo y trazas de pila, pero no incluyen tus datos de salud.</li>
+            </ul>
+            <p>Ninguno de estos servicios recibe tus datos de salud, biomarcadores o informaci&oacute;n de salud de identificaci&oacute;n personal.</p>
+        </section>
+
+        <section>
+            <h2>10. Cambios en esta pol&iacute;tica</h2>
+            <p>Podemos actualizar esta Pol&iacute;tica de Privacidad de vez en cuando. Te notificaremos sobre cambios importantes a trav&eacute;s de la App. El uso continuado de la App despu&eacute;s de los cambios constituye la aceptaci&oacute;n de la pol&iacute;tica actualizada.</p>
+        </section>
+
+        <section>
+            <h2>11. Tus derechos</h2>
+            <p>Tienes derecho a:</p>
+            <ul>
+                <li>Acceder a todos tus datos almacenados en la App.</li>
+                <li>Exportar tus datos en un formato portable (JSON).</li>
+                <li>Eliminar todos tus datos en cualquier momento.</li>
+                <li>Desconectar cualquier servicio de terceros en cualquier momento.</li>
+                <li>Optar por no utilizar funciones que involucren procesamiento de datos por terceros (importaci&oacute;n de laboratorio).</li>
+            </ul>
+        </section>
+
+        <section>
+            <h2>12. Contacto</h2>
+            <p>Para preguntas sobre esta Pol&iacute;tica de Privacidad o tus datos, cont&aacute;ctanos en <a href="mailto:lawtonlabsapps@gmail.com">lawtonlabsapps@gmail.com</a>.</p>
+        </section>
+
+        <footer>
+            <p>&copy; 2025 Lawton Labs. Todos los derechos reservados.</p>
+            <div class="nav-links">
+                <a href="../index.html">Inicio</a>
+                <a href="../es/terms-of-service.html">T&eacute;rminos de Servicio</a>
+            </div>
+        </footer>
+    </div>
+</body>
+</html>
