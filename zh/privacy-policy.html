@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>隐私政策 - Gradual</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.7;
+            color: #1f2937;
+            background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 720px;
+            margin: 0 auto;
+            padding: 40px 24px 80px;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 48px;
+            padding-bottom: 32px;
+            border-bottom: 1px solid #e2e8f0;
+        }
+
+        .logo {
+            width: 64px;
+            height: 64px;
+            border-radius: 16px;
+            margin: 0 auto 12px;
+            box-shadow: 0 4px 14px rgba(46, 91, 255, 0.25);
+        }
+
+        .app-name {
+            font-size: 13px;
+            font-weight: 600;
+            color: #64748b;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            margin-bottom: 4px;
+        }
+
+        h1 {
+            font-size: 32px;
+            font-weight: 700;
+            color: #0f172a;
+            margin-bottom: 8px;
+        }
+
+        .subtitle {
+            color: #64748b;
+            font-size: 14px;
+        }
+
+        .last-updated {
+            display: inline-block;
+            background: #f1f5f9;
+            color: #64748b;
+            padding: 6px 12px;
+            border-radius: 20px;
+            font-size: 13px;
+            margin-top: 16px;
+        }
+
+        section {
+            background: white;
+            border-radius: 12px;
+            padding: 24px;
+            margin-bottom: 16px;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+            border: 1px solid #e2e8f0;
+        }
+
+        h2 {
+            font-size: 18px;
+            font-weight: 600;
+            color: #0f172a;
+            margin-bottom: 12px;
+        }
+
+        p {
+            color: #374151;
+            font-size: 15px;
+            margin-bottom: 12px;
+        }
+
+        p:last-child {
+            margin-bottom: 0;
+        }
+
+        ul {
+            list-style: none;
+            padding: 0;
+            margin: 12px 0;
+        }
+
+        li {
+            position: relative;
+            padding-left: 24px;
+            margin-bottom: 10px;
+            font-size: 15px;
+            color: #374151;
+        }
+
+        li:before {
+            content: "";
+            position: absolute;
+            left: 0;
+            top: 8px;
+            width: 8px;
+            height: 8px;
+            background: #2E5BFF;
+            border-radius: 50%;
+        }
+
+        li:last-child {
+            margin-bottom: 0;
+        }
+
+        .highlight {
+            background: #eff6ff;
+            border-left: 4px solid #2E5BFF;
+            padding: 16px;
+            border-radius: 0 8px 8px 0;
+            margin: 16px 0;
+        }
+
+        .highlight p {
+            margin: 0;
+            color: #1e40af;
+            font-size: 14px;
+        }
+
+        a {
+            color: #2E5BFF;
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        footer {
+            text-align: center;
+            padding-top: 32px;
+            border-top: 1px solid #e2e8f0;
+            margin-top: 48px;
+        }
+
+        footer p {
+            color: #94a3b8;
+            font-size: 13px;
+        }
+
+        .nav-links {
+            margin-top: 16px;
+        }
+
+        .nav-links a {
+            color: #64748b;
+            margin: 0 12px;
+            font-size: 14px;
+        }
+
+        @media (max-width: 640px) {
+            .container {
+                padding: 24px 16px 60px;
+            }
+
+            h1 {
+                font-size: 26px;
+            }
+
+            section {
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <img src="../icon.png" alt="Gradual" class="logo">
+            <p class="app-name">Gradual</p>
+            <h1>隐私政策</h1>
+            <span class="last-updated">最后更新：2025年2月26日</span>
+        </header>
+
+        <section>
+            <h2>1. 概述</h2>
+            <p>Gradual（"本应用"）采用隐私优先的设计理念。您的健康数据安全地存储在您的设备上，并通过Apple的iCloud服务（CloudKit）进行同步。您的数据绝不会存储在Lawton Labs的服务器上。某些功能涉及第三方服务，如下所述。</p>
+        </section>
+
+        <section>
+            <h2>2. 我们收集的数据</h2>
+            <p>本应用在您的设备本地收集并存储以下数据：</p>
+            <ul>
+                <li><strong>个人资料信息</strong> — 您在引导流程中输入的姓名和偏好设置。</li>
+                <li><strong>健康指标</strong> — 经您明确授权后从Apple HealthKit获取的数据（步数、心率、HRV、睡眠、VO2max等指标）。</li>
+                <li><strong>活动数据</strong> — 来自Strava的运动和活动信息。</li>
+                <li><strong>化验结果</strong> — 从您导入的化验报告中提取的生物标志物数值。</li>
+                <li><strong>补充剂方案</strong> — 您创建的补充剂、剂量和依从性记录。</li>
+                <li><strong>情绪记录</strong> — 您记录的每日情绪和压力评分。</li>
+            </ul>
+            <div class="highlight">
+                <p>以上所有数据均在设备上加密，并通过Apple iCloud (CloudKit) 安全同步。您的数据存储在您的个人iCloud账户中，绝不会存储在Lawton Labs的服务器上。</p>
+            </div>
+        </section>
+
+        <section>
+            <h2>3. 与第三方共享的数据</h2>
+            <p><strong>OpenAI（化验报告处理）</strong></p>
+            <p>当您使用化验导入功能并选择AI解析时，您的化验报告PDF将被发送至OpenAI的API进行AI驱动的生物标志物提取。这意味着：</p>
+            <ul>
+                <li>您的化验报告PDF — 可能包含您的姓名、生物标志物数值、参考范围、实验室名称和检测日期 — 将被传输至OpenAI的服务器进行处理。</li>
+                <li>OpenAI根据OpenAI API使用条款和隐私政策处理此数据。</li>
+                <li>根据OpenAI的API数据使用政策，通过API发送的数据不会被用于训练OpenAI的模型。</li>
+                <li>数据通过加密的HTTPS连接传输。</li>
+                <li>除报告内容外，不会传输任何设备标识符或个人信息。</li>
+                <li>如果AI解析器失败，本应用将回退到完全本地的正则表达式解析器，不会传输任何数据。</li>
+            </ul>
+            <p>您可以通过不使用PDF化验导入功能来避免与OpenAI共享化验数据。"粘贴结果"选项使用设备端解析器，不会传输任何数据。</p>
+        </section>
+
+        <section>
+            <h2>4. Apple HealthKit数据</h2>
+            <p>通过Apple HealthKit访问的健康数据按照Apple的HealthKit指南进行处理：</p>
+            <ul>
+                <li>仅在您授予明确权限后才会访问数据。</li>
+                <li>HealthKit数据仅供读取 — 本应用不会向HealthKit写入数据。</li>
+                <li>HealthKit数据通过您的个人iCloud账户使用Apple的CloudKit进行同步。此数据存储在您的私有iCloud容器中，绝不会存储在Lawton Labs的服务器上或传输给第三方。</li>
+                <li>HealthKit数据绝不会用于广告或营销目的。</li>
+            </ul>
+        </section>
+
+        <section>
+            <h2>5. Strava集成</h2>
+            <p>当您连接Strava账户时：</p>
+            <ul>
+                <li>身份验证使用OAuth 2.0与PKCE — 本应用绝不会看到或存储您的Strava密码。</li>
+                <li>仅从Strava的API获取活动数据（类型、时长、距离、心率）。</li>
+                <li>获取的活动数据缓存在您的设备本地。</li>
+                <li>您可以随时从个人资料页面断开Strava连接。</li>
+            </ul>
+        </section>
+
+        <section>
+            <h2>6. 数据存储与安全</h2>
+            <ul>
+                <li>敏感数据（API密钥、令牌、健康数据）使用expo-secure-store存储，该工具使用iOS钥匙串进行加密存储。</li>
+                <li>存储在SQLite中的健康指标使用应用层AES-256-GCM加密。加密密钥存储在iOS钥匙串中。</li>
+                <li>您的数据通过Apple的CloudKit同步到您的个人iCloud账户。此数据存储在仅您可访问的私有CloudKit容器中。Lawton Labs运营的服务器上不存储任何健康数据。</li>
+                <li>数据导出功能可从个人资料页面以JSON格式导出。</li>
+            </ul>
+        </section>
+
+        <section>
+            <h2>7. 数据保留与删除</h2>
+            <ul>
+                <li>所有数据存储在您的设备上并同步到您的个人iCloud账户。数据将持续保存直到您将其删除。</li>
+                <li>您可以随时使用个人资料页面上的"删除所有数据"选项删除所有数据。这将从您的设备和iCloud中删除数据。</li>
+                <li>卸载本应用将删除所有本地存储的数据。您iCloud账户中的数据可能会保留，直到通过本应用或iCloud设置删除。</li>
+                <li>发送至OpenAI进行化验解析的数据为临时处理，根据OpenAI的API数据使用政策，OpenAI不会保留用于模型训练。</li>
+            </ul>
+        </section>
+
+        <section>
+            <h2>8. 儿童隐私</h2>
+            <p>本应用不适用于13岁以下的个人。我们不会故意收集13岁以下儿童的个人信息。</p>
+        </section>
+
+        <section>
+            <h2>9. 分析与错误跟踪</h2>
+            <p>本应用使用以下服务进行分析和错误跟踪：</p>
+            <ul>
+                <li><strong>Amplitude</strong> — 匿名使用分析，帮助我们了解功能使用情况并改进应用。不会向Amplitude发送任何健康数据或个人身份信息。</li>
+                <li><strong>Sentry</strong> — 崩溃和错误报告，帮助我们识别和修复漏洞。错误报告可能包含设备类型、操作系统版本和堆栈跟踪，但不包含您的健康数据。</li>
+            </ul>
+            <p>以上服务均不会接收您的健康数据、生物标志物或个人身份健康信息。</p>
+        </section>
+
+        <section>
+            <h2>10. 政策变更</h2>
+            <p>我们可能会不时更新本隐私政策。我们将通过应用通知您重大变更。变更后继续使用本应用即表示接受更新后的政策。</p>
+        </section>
+
+        <section>
+            <h2>11. 您的权利</h2>
+            <p>您有权：</p>
+            <ul>
+                <li>访问存储在应用中的所有数据。</li>
+                <li>以可移植格式（JSON）导出您的数据。</li>
+                <li>随时删除您的所有数据。</li>
+                <li>随时断开任何第三方服务的连接。</li>
+                <li>选择不使用涉及第三方数据处理的功能（化验导入）。</li>
+            </ul>
+        </section>
+
+        <section>
+            <h2>12. 联系方式</h2>
+            <p>如对本隐私政策或您的数据有任何疑问，请通过 <a href="mailto:lawtonlabsapps@gmail.com">lawtonlabsapps@gmail.com</a> 联系我们。</p>
+        </section>
+
+        <footer>
+            <p>&copy; 2025 Lawton Labs. 保留所有权利。</p>
+            <div class="nav-links">
+                <a href="../index.html">首页</a>
+                <a href="terms-of-service.html">服务条款</a>
+            </div>
+        </footer>
+    </div>
+</body>
+</html>
