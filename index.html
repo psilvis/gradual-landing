@@ -186,6 +186,16 @@
             position: relative;
             z-index: 3;
             transform: rotate(-1deg);
+            transition: transform 0.6s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.6s ease;
+        }
+
+        .phone-frame:hover {
+            transform: rotate(1.5deg) translateY(-4px);
+            box-shadow: 0 48px 100px rgba(0,0,0,0.5), 0 0 0 1px rgba(255,255,255,0.18);
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            .phone-frame { transition: none; }
         }
 
         .phone-media {
@@ -355,14 +365,40 @@
             grid-template-columns: 88px 1fr 52px;
             align-items: center;
             gap: 16px;
+            padding: 4px 0;
+            transform: scale(1);
+            transform-origin: left center;
+            transition: transform 0.5s cubic-bezier(0.22, 1, 0.36, 1);
         }
 
-        .bar-row .label { color: #fff; font-size: 15px; font-weight: 600; }
+        .bar-row .label { color: #fff; font-size: 15px; font-weight: 600; transition: opacity 0.5s ease; }
         .bar-row.warn .label, .bar-row.warn .pct { color: var(--amber); }
-        .bar-row .pct { color: #fff; font-size: 15px; font-weight: 700; text-align: right; }
+        .bar-row .pct { color: #fff; font-size: 15px; font-weight: 700; text-align: right; transition: opacity 0.5s ease; }
         .bar-track { height: 8px; border-radius: 4px; background: rgba(255,255,255,0.1); overflow: hidden; }
         .bar-fill { height: 100%; background: var(--green); border-radius: 4px; }
         .bar-fill.warn { background: var(--amber); }
+
+        /* Baseline cycler: focused metric enlarges slightly and its
+           radar dot enlarges in unison; the rest dim a touch so the
+           focus reads clearly. */
+        .bar-row.is-active {
+            transform: scale(1.06);
+        }
+
+        .bars:has(.is-active) .bar-row:not(.is-active) .label,
+        .bars:has(.is-active) .bar-row:not(.is-active) .pct {
+            opacity: 0.55;
+        }
+
+        .metric-dot {
+            transition: r 0.5s cubic-bezier(0.22, 1, 0.36, 1), opacity 0.5s ease;
+            transform-box: fill-box;
+            transform-origin: center;
+        }
+
+        .metric-dot.is-active {
+            r: 8;
+        }
 
         .result-foot {
             display: flex;
@@ -495,7 +531,7 @@
 
         <div class="hero">
             <div class="hero-copy">
-                <h1>How fit are you<br>for your age?</h1>
+                <h1>Strength should<br>be balanced.</h1>
                 <p>Six timed tests you can do at home. The benchmark compares your strength and mobility balance to calculate your age percentiles.</p>
                 <div class="hero-cta">
                     <a href="https://apps.apple.com/app/id6759505043" class="app-store-badge">
@@ -596,41 +632,41 @@
                         <line x1="130" y1="130" x2="43.4" y2="180" stroke="rgba(255,255,255,0.08)"/>
                         <line x1="130" y1="130" x2="43.4" y2="80" stroke="rgba(255,255,255,0.08)"/>
                         <polygon points="130,48 212.3,82.5 212.3,177.5 130,185 47.7,177.5 47.7,82.5" fill="rgba(36,194,92,0.22)" stroke="#24C25C" stroke-width="3" stroke-linejoin="round"/>
-                        <circle cx="130" cy="48" r="5" fill="#24C25C"/>
-                        <circle cx="212.3" cy="82.5" r="5" fill="#24C25C"/>
-                        <circle cx="212.3" cy="177.5" r="5" fill="#24C25C"/>
-                        <circle cx="130" cy="185" r="5" fill="#F5A524"/>
-                        <circle cx="47.7" cy="177.5" r="5" fill="#24C25C"/>
-                        <circle cx="47.7" cy="82.5" r="5" fill="#24C25C"/>
+                        <circle class="metric-dot" data-metric="push" cx="130" cy="48" r="5" fill="#24C25C"/>
+                        <circle class="metric-dot" data-metric="legs" cx="212.3" cy="82.5" r="5" fill="#24C25C"/>
+                        <circle class="metric-dot" data-metric="core" cx="212.3" cy="177.5" r="5" fill="#24C25C"/>
+                        <circle class="metric-dot" data-metric="balance" cx="130" cy="185" r="5" fill="#F5A524"/>
+                        <circle class="metric-dot" data-metric="mobility" cx="47.7" cy="177.5" r="5" fill="#24C25C"/>
+                        <circle class="metric-dot" data-metric="grip" cx="47.7" cy="82.5" r="5" fill="#24C25C"/>
                     </svg>
 
                     <div class="bars">
-                        <div class="bar-row">
+                        <div class="bar-row" data-metric="push">
                             <span class="label">PUSH</span>
                             <div class="bar-track"><div class="bar-fill" style="width:82%"></div></div>
                             <span class="pct">82nd</span>
                         </div>
-                        <div class="bar-row">
+                        <div class="bar-row" data-metric="legs">
                             <span class="label">LEGS</span>
                             <div class="bar-track"><div class="bar-fill" style="width:95%"></div></div>
                             <span class="pct">95th</span>
                         </div>
-                        <div class="bar-row">
+                        <div class="bar-row" data-metric="core">
                             <span class="label">CORE</span>
                             <div class="bar-track"><div class="bar-fill" style="width:95%"></div></div>
                             <span class="pct">95th</span>
                         </div>
-                        <div class="bar-row">
+                        <div class="bar-row" data-metric="mobility">
                             <span class="label">MOBILITY</span>
                             <div class="bar-track"><div class="bar-fill" style="width:95%"></div></div>
                             <span class="pct">95th</span>
                         </div>
-                        <div class="bar-row warn">
+                        <div class="bar-row warn" data-metric="balance">
                             <span class="label">BALANCE</span>
                             <div class="bar-track"><div class="bar-fill warn" style="width:55%"></div></div>
                             <span class="pct">55th</span>
                         </div>
-                        <div class="bar-row">
+                        <div class="bar-row" data-metric="grip">
                             <span class="label">GRIP</span>
                             <div class="bar-track"><div class="bar-fill" style="width:95%"></div></div>
                             <span class="pct">95th</span>
@@ -695,5 +731,37 @@
         </footer>
     </div>
 
+    <script>
+        // Cycle the "Physical Baseline" card: highlight one metric at a
+        // time, enlarging its bar row and the matching radar dot together.
+        (function () {
+            var barRows = document.querySelectorAll('.bar-row[data-metric]');
+            var dots = document.querySelectorAll('.metric-dot[data-metric]');
+            if (!barRows.length || !dots.length) return;
+
+            var order = Array.prototype.map.call(barRows, function (el) {
+                return el.getAttribute('data-metric');
+            });
+
+            var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+            if (reduceMotion) return;
+
+            var i = 0;
+            function setActive(metric) {
+                barRows.forEach(function (el) {
+                    el.classList.toggle('is-active', el.getAttribute('data-metric') === metric);
+                });
+                dots.forEach(function (el) {
+                    el.classList.toggle('is-active', el.getAttribute('data-metric') === metric);
+                });
+            }
+
+            setActive(order[0]);
+            setInterval(function () {
+                i = (i + 1) % order.length;
+                setActive(order[i]);
+            }, 1800);
+        })();
+    </script>
 </body>
 </html>
