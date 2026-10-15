@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Gradual - How Fit Are You For Your Age?</title>
-    <meta name="description" content="Six timed tests you can do at home. Gradual benchmarks your strength and mobility against your age group, then helps you close the gaps.">
+    <title>Gradual - Your Blood Work, Finally Explained</title>
+    <meta name="description" content="Gradual brings your lab results together, shows each marker against optimal ranges backed by research, tracks every result over time, and turns it all into a biological age you can improve.">
     <link rel="icon" type="image/png" href="icon.png">
     <meta name="brotherstock-verify" content="2gg53akuxbd9uqatodwkrp">
     <link rel="apple-touch-icon" href="icon.png">
@@ -20,6 +20,7 @@
             --ink: #0B1226;
             --green: #24C25C;
             --amber: #F5A524;
+            --coral: #FF5252;
             --paper: #F7F8FA;
             --slate-600: #4A5470;
             --slate-400: #6B7280;
@@ -36,6 +37,8 @@
         }
 
         .mono { font-family: 'IBM Plex Mono', monospace; }
+
+        h2 { text-wrap: balance; }
 
         /* ===== Header ===== */
         .hero-wrapper {
@@ -198,12 +201,67 @@
             .phone-frame { transition: none; }
         }
 
+        /* Scroll viewport: content-strip.png (everything above the tab
+           bar) renders at its natural tall aspect ratio and is scrolled
+           programmatically — see the auto-scroll script at the bottom of
+           the page. Hidden scrollbar keeps it looking like the app, not
+           a webpage. Bottom padding keeps the last card clear of the
+           fixed tab bar docked on top of it. */
+        .phone-scroll {
+            position: absolute;
+            inset: 0;
+            overflow-x: hidden;
+            overflow-y: scroll;
+            scrollbar-width: none;
+            -ms-overflow-style: none;
+        }
+
+        .phone-scroll::-webkit-scrollbar { display: none; }
+
+        /* content-strip.png (1179x2070) scaled to the frame's width would
+           come out shorter than the visible viewport, leaving nothing to
+           scroll. Rendering it a bit larger than the frame — like a
+           slightly-zoomed-in camera on the real screen — guarantees real
+           overflow, so the auto-scroll below has genuine distance to
+           cover, the same way scrolling the real app reveals cards
+           below the fold. */
         .phone-media {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
             display: block;
+            width: 108%;
+            max-width: none;
+            height: auto;
+            margin-left: -4%;
+            padding-bottom: 90px;
             background: linear-gradient(160deg, #1B2A5C 0%, #101A3C 100%);
+        }
+
+        /* Fixed tab bar: pinned to the bottom of the frame, never
+           scrolls. A soft fade above it stands in for the app's own
+           translucent nav background so scrolled content doesn't hard-cut
+           underneath it. */
+        .phone-tabbar-dock {
+            position: absolute;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            z-index: 2;
+            pointer-events: none;
+        }
+
+        .phone-tabbar-dock::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            right: 0;
+            bottom: 100%;
+            height: 28px;
+            background: linear-gradient(to top, rgba(251,251,249,0.95), rgba(251,251,249,0));
+        }
+
+        .phone-tabbar-dock img {
+            display: block;
+            width: 100%;
+            height: auto;
         }
 
         .wave-divider {
@@ -293,7 +351,7 @@
             flex-direction: column;
             gap: 24px;
             max-width: 440px;
-            flex-shrink: 0;
+            flex-shrink: 1;
         }
 
         .results-copy h2 {
@@ -327,7 +385,7 @@
 
         .result-card {
             flex: 1;
-            min-width: 0;
+            min-width: 420px;
             display: flex;
             flex-direction: column;
             gap: 28px;
@@ -349,55 +407,83 @@
         .result-head .subtitle { color: #8A9A92; font-size: 15px; }
         .result-head .date { font-size: 12px; color: #7E8C85; letter-spacing: 0.1em; }
 
-        .result-body {
-            display: flex;
-            align-items: center;
-            gap: 40px;
-            flex-wrap: wrap;
-        }
+        /* Sample lab panel: each row shows a marker's position on its
+           range, with the optimal zone tinted green. Status colours
+           match the app (optimal / in range / out of range). */
+        .lab-rows { display: flex; flex-direction: column; gap: 18px; }
 
-        .result-body svg { width: 220px; height: 220px; flex-shrink: 0; }
-
-        .bars { flex: 1; min-width: 220px; display: flex; flex-direction: column; gap: 14px; }
-
-        .bar-row {
+        .lab-row {
             display: grid;
-            grid-template-columns: 88px 1fr 52px;
+            grid-template-columns: 84px minmax(80px, 1fr) 104px;
             align-items: center;
-            gap: 16px;
-            padding: 4px 0;
+            gap: 18px;
             transform: scale(1);
             transform-origin: left center;
             transition: transform 0.5s cubic-bezier(0.22, 1, 0.36, 1);
         }
 
-        .bar-row .label { color: #fff; font-size: 15px; font-weight: 600; transition: opacity 0.5s ease; }
-        .bar-row.warn .label, .bar-row.warn .pct { color: var(--amber); }
-        .bar-row .pct { color: #fff; font-size: 15px; font-weight: 700; text-align: right; transition: opacity 0.5s ease; }
-        .bar-track { height: 8px; border-radius: 4px; background: rgba(255,255,255,0.1); overflow: hidden; }
-        .bar-fill { height: 100%; background: var(--green); border-radius: 4px; }
-        .bar-fill.warn { background: var(--amber); }
+        .lab-row .label { color: #fff; font-size: 15px; font-weight: 600; transition: opacity 0.5s ease; }
+        .lab-row .val { color: #fff; font-size: 16px; font-weight: 700; text-align: right; white-space: nowrap; transition: opacity 0.5s ease; }
+        .lab-row .val small { color: #8A9A92; font-size: 12px; font-weight: 500; }
 
-        /* Baseline cycler: focused metric enlarges slightly and its
-           radar dot enlarges in unison; the rest dim a touch so the
-           focus reads clearly. */
-        .bar-row.is-active {
-            transform: scale(1.06);
+        .range-track {
+            position: relative;
+            height: 8px;
+            border-radius: 4px;
+            background: rgba(255,255,255,0.1);
         }
 
-        .bars:has(.is-active) .bar-row:not(.is-active) .label,
-        .bars:has(.is-active) .bar-row:not(.is-active) .pct {
+        .range-track .zone {
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            border-radius: 4px;
+            background: rgba(36,194,92,0.35);
+        }
+
+        .range-track .marker {
+            position: absolute;
+            top: 50%;
+            width: 14px;
+            height: 14px;
+            margin: -7px 0 0 -7px;
+            border-radius: 50%;
+            border: 2px solid #16241E;
+            background: var(--green);
+            transition: transform 0.5s cubic-bezier(0.22, 1, 0.36, 1);
+        }
+
+        .lab-row.mid .marker { background: var(--amber); }
+        .lab-row.out .marker { background: var(--coral); }
+        .lab-row.out .label { color: var(--coral); }
+
+        /* Cycler: the focused marker enlarges slightly; the rest dim a
+           touch so the focus reads clearly. */
+        .lab-row.is-active { transform: scale(1.05); }
+        .lab-row.is-active .marker { transform: scale(1.3); }
+
+        .lab-rows:has(.is-active) .lab-row:not(.is-active) .label,
+        .lab-rows:has(.is-active) .lab-row:not(.is-active) .val {
             opacity: 0.55;
         }
 
-        .metric-dot {
-            transition: r 0.5s cubic-bezier(0.22, 1, 0.36, 1), opacity 0.5s ease;
-            transform-box: fill-box;
-            transform-origin: center;
-        }
+        .lab-legend { display: flex; gap: 22px; flex-wrap: wrap; font-size: 11px; color: #7E8C85; letter-spacing: 0.08em; }
+        .lab-legend span { display: inline-flex; align-items: center; gap: 8px; }
+        .lab-legend i { width: 8px; height: 8px; border-radius: 50%; background: var(--green); }
+        .lab-legend i.mid { background: var(--amber); }
+        .lab-legend i.out { background: var(--coral); }
 
-        .metric-dot.is-active {
-            r: 8;
+        .pro-tag {
+            display: inline-block;
+            margin-left: 6px;
+            padding: 2px 8px;
+            border-radius: 6px;
+            background: #E8EDFF;
+            color: #2E5BFF;
+            font-size: 11px;
+            font-weight: 500;
+            letter-spacing: 0.08em;
+            vertical-align: middle;
         }
 
         .result-foot {
@@ -430,7 +516,7 @@
             letter-spacing: -0.025em;
         }
 
-        .method-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 48px; }
+        .method-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 40px; }
         .method-item { display: flex; flex-direction: column; gap: 14px; }
         .method-item .name { color: var(--navy); font-size: 21px; font-weight: 700; }
         .method-item .desc { color: var(--slate-600); font-size: 16px; line-height: 1.65; text-wrap: pretty; }
@@ -485,6 +571,11 @@
         footer .footer-links a:hover { color: #fff; }
 
         /* ===== Responsive ===== */
+        @media (max-width: 1200px) {
+            .method-grid { grid-template-columns: repeat(2, 1fr); }
+            .hero-copy h1 { font-size: 58px; }
+        }
+
         @media (max-width: 980px) {
             header { padding: 24px 32px; }
             nav { gap: 20px; }
@@ -503,6 +594,7 @@
 
             .results { padding: 64px 32px; }
             .results-inner { flex-direction: column; gap: 48px; }
+            .results-inner .result-card { min-width: 0; width: 100%; }
             .method { padding: 64px 32px; }
             .cta { padding: 48px 32px 64px; }
             footer { padding: 24px 32px; justify-content: center; text-align: center; }
@@ -511,6 +603,11 @@
         @media (max-width: 560px) {
             .tests-grid { grid-template-columns: 1fr; }
             .hero-copy h1 { font-size: 38px; }
+            .result-card { padding: 24px 20px; }
+            .lab-row { grid-template-columns: 70px 1fr 88px; gap: 12px; }
+            .lab-row .label { font-size: 13px; }
+            .lab-row .val { font-size: 14px; }
+            .lab-row .val small { font-size: 11px; }
         }
     </style>
 </head>
@@ -524,15 +621,16 @@
                 <span>Gradual</span>
             </a>
             <nav>
-                <a href="#method" class="nav-link">Method</a>
+                <a href="#labs" class="nav-link">Labs</a>
+                <a href="#method" class="nav-link">How it works</a>
                 <a href="https://apps.apple.com/app/id6759505043" class="btn-outline">Get the app</a>
             </nav>
         </header>
 
         <div class="hero">
             <div class="hero-copy">
-                <h1>Strength should<br>be balanced.</h1>
-                <p>Six timed tests you can do at home. The benchmark compares your strength and mobility balance to calculate your age percentiles.</p>
+                <h1>Your blood work, finally explained.</h1>
+                <p>Gradual brings your lab results together, shows what every marker means, and turns them into a biological age you can improve.</p>
                 <div class="hero-cta">
                     <a href="https://apps.apple.com/app/id6759505043" class="app-store-badge">
                         <img src="https://developer.apple.com/assets/elements/badges/download-on-the-app-store.svg" alt="Download on the App Store">
@@ -544,11 +642,26 @@
                 <div class="phone-glow"></div>
                 <div class="phone-frame">
                     <!--
-                        Swap the app-store screenshot/video here.
-                        Image: <img class="phone-media" src="assets/app-screenshot.png" alt="Gradual app screenshot">
-                        Video: <video class="phone-media" src="assets/app-screenshot.mp4" autoplay muted loop playsinline></video>
+                        Swap the app-store screenshot here. The screen is
+                        split into two images so the tab bar can stay
+                        fixed while the content above it scrolls, matching
+                        real app behavior:
+                          - assets/labs-content-strip.png: everything above
+                            the tab bar (header, filters, marker cards). Auto-scrolls
+                            inside .phone-scroll — see script at the
+                            bottom of the page.
+                          - assets/labs-tabbar-strip.png: just the tab bar,
+                            pinned via .phone-tabbar-dock, never scrolls.
+                        To swap in a new screenshot: crop it the same way
+                        (content above the tab bar / the tab bar itself)
+                        and replace both files.
                     -->
-                    <img class="phone-media" src="assets/app-screenshot.png" alt="Gradual app screenshot" onerror="this.style.display='none'">
+                    <div class="phone-scroll">
+                        <img class="phone-media" src="assets/labs-content-strip.png" alt="Gradual Labs tab showing lab results against optimal ranges" onerror="this.closest('.phone-scroll').style.display='none'">
+                    </div>
+                    <div class="phone-tabbar-dock">
+                        <img src="assets/labs-tabbar-strip.png" alt="">
+                    </div>
                 </div>
             </div>
         </div>
@@ -560,54 +673,54 @@
         </div>
     </div>
 
-    <!-- ===== Six Tests ===== -->
-    <section class="content">
+    <!-- ===== Labs ===== -->
+    <section class="content" id="labs">
         <div class="section-head">
-            <h2>Strength, mobility, control</h2>
-            <p>Each test is backed by population data, and insights are personalized based on your activity levels, sleep and labwork data.</p>
+            <h2>Every marker.<br>One place.</h2>
+            <p>Every result in plain language, from any lab, including the health records in Apple Health. Track 40+ biomarkers, and each new blood draw builds your history.</p>
         </div>
         <div class="tests-grid">
             <div class="test-card">
-                <span class="name">Push</span>
-                <span class="desc">Push-ups to failure. Upper body strength endurance.</span>
+                <span class="name">Heart &amp; lipids</span>
+                <span class="desc">Cholesterol, ApoB, Lp(a) and triglycerides. Cardiovascular risk, in detail.</span>
             </div>
             <div class="test-card">
-                <span class="name">Legs</span>
-                <span class="desc">Wall sit held to failure. Lower body endurance.</span>
+                <span class="name">Metabolic</span>
+                <span class="desc">Glucose, HbA1c and fasting insulin. How well your body handles sugar.</span>
             </div>
             <div class="test-card">
-                <span class="name">Core</span>
-                <span class="desc">Forearm plank. Trunk stability under fatigue.</span>
+                <span class="name">Hormones</span>
+                <span class="desc">Testosterone, estradiol and cortisol. Energy, recovery and mood.</span>
             </div>
             <div class="test-card">
-                <span class="name">Mobility</span>
-                <span class="desc">Sit and rise from the floor without using your hands.</span>
+                <span class="name">Thyroid</span>
+                <span class="desc">TSH and free T4. The thermostat for your metabolism.</span>
             </div>
             <div class="test-card">
-                <span class="name">Balance</span>
-                <span class="desc">Single leg stand, eyes closed. Neural control. It's harder than it sounds.</span>
+                <span class="name">Vitamins</span>
+                <span class="desc">Vitamin D and B12. Common gaps that are worth knowing about.</span>
             </div>
             <div class="test-card">
-                <span class="name">Grip</span>
-                <span class="desc">Dead hang from a bar. Grip strength tracks whole body strength.</span>
+                <span class="name">Inflammation</span>
+                <span class="desc">hs-CRP and homocysteine. Low-grade inflammation, tracked over time.</span>
             </div>
         </div>
     </section>
 
-    <!-- ===== Sample Results ===== -->
+    <!-- ===== Optimal ranges ===== -->
     <section class="results">
         <div class="results-inner">
             <div class="results-copy">
-                <h2>Where are your strengths and gaps?</h2>
-                <p>Your push, leg and core strength are exceptional, at the 95th percentile for your age. The biggest gap is your balance which lags by comparison at the 55th percentile.</p>
+                <h2>Optimal, not just &ldquo;normal.&rdquo;</h2>
+                <p>A lab&rsquo;s reference range tells you what&rsquo;s typical. Gradual also shows the optimal range for each marker, backed by peer-reviewed citations, so you can see at a glance what&rsquo;s on track and what&rsquo;s worth discussing with your doctor.</p>
                 <div class="stat-row">
                     <div class="stat-pill">
-                        <span class="num">10 min</span>
-                        <span class="label mono">TO COMPLETE</span>
+                        <span class="num">40+</span>
+                        <span class="label mono">BIOMARKERS</span>
                     </div>
                     <div class="stat-pill">
-                        <span class="num">8 wks</span>
-                        <span class="label mono">TO RETEST</span>
+                        <span class="num">Any lab</span>
+                        <span class="label mono">RESULTS WELCOME</span>
                     </div>
                 </div>
             </div>
@@ -615,91 +728,81 @@
             <div class="result-card">
                 <div class="result-head">
                     <div>
-                        <div class="title">Physical Baseline</div>
-                        <div class="subtitle">Taylor &middot; Results</div>
+                        <div class="title">Lab Results</div>
+                        <div class="subtitle">Taylor &middot; Sample panel</div>
                     </div>
-                    <span class="date mono">AUG 28, 2026</span>
+                    <span class="date mono">SEP 28, 2026</span>
                 </div>
 
-                <div class="result-body">
-                    <svg viewBox="0 0 260 260">
-                        <polygon points="130,30 216.6,80 216.6,180 130,230 43.4,180 43.4,80" fill="none" stroke="rgba(255,255,255,0.10)" stroke-width="1"/>
-                        <polygon points="130,80 173.3,105 173.3,155 130,180 86.7,155 86.7,105" fill="none" stroke="rgba(255,255,255,0.10)" stroke-width="1"/>
-                        <line x1="130" y1="130" x2="130" y2="30" stroke="rgba(255,255,255,0.08)"/>
-                        <line x1="130" y1="130" x2="216.6" y2="80" stroke="rgba(255,255,255,0.08)"/>
-                        <line x1="130" y1="130" x2="216.6" y2="180" stroke="rgba(255,255,255,0.08)"/>
-                        <line x1="130" y1="130" x2="130" y2="230" stroke="rgba(255,255,255,0.08)"/>
-                        <line x1="130" y1="130" x2="43.4" y2="180" stroke="rgba(255,255,255,0.08)"/>
-                        <line x1="130" y1="130" x2="43.4" y2="80" stroke="rgba(255,255,255,0.08)"/>
-                        <polygon points="130,48 212.3,82.5 212.3,177.5 130,185 47.7,177.5 47.7,82.5" fill="rgba(36,194,92,0.22)" stroke="#24C25C" stroke-width="3" stroke-linejoin="round"/>
-                        <circle class="metric-dot" data-metric="push" cx="130" cy="48" r="5" fill="#24C25C"/>
-                        <circle class="metric-dot" data-metric="legs" cx="212.3" cy="82.5" r="5" fill="#24C25C"/>
-                        <circle class="metric-dot" data-metric="core" cx="212.3" cy="177.5" r="5" fill="#24C25C"/>
-                        <circle class="metric-dot" data-metric="balance" cx="130" cy="185" r="5" fill="#F5A524"/>
-                        <circle class="metric-dot" data-metric="mobility" cx="47.7" cy="177.5" r="5" fill="#24C25C"/>
-                        <circle class="metric-dot" data-metric="grip" cx="47.7" cy="82.5" r="5" fill="#24C25C"/>
-                    </svg>
-
-                    <div class="bars">
-                        <div class="bar-row" data-metric="push">
-                            <span class="label">PUSH</span>
-                            <div class="bar-track"><div class="bar-fill" style="width:82%"></div></div>
-                            <span class="pct">82nd</span>
-                        </div>
-                        <div class="bar-row" data-metric="legs">
-                            <span class="label">LEGS</span>
-                            <div class="bar-track"><div class="bar-fill" style="width:95%"></div></div>
-                            <span class="pct">95th</span>
-                        </div>
-                        <div class="bar-row" data-metric="core">
-                            <span class="label">CORE</span>
-                            <div class="bar-track"><div class="bar-fill" style="width:95%"></div></div>
-                            <span class="pct">95th</span>
-                        </div>
-                        <div class="bar-row" data-metric="mobility">
-                            <span class="label">MOBILITY</span>
-                            <div class="bar-track"><div class="bar-fill" style="width:95%"></div></div>
-                            <span class="pct">95th</span>
-                        </div>
-                        <div class="bar-row warn" data-metric="balance">
-                            <span class="label">BALANCE</span>
-                            <div class="bar-track"><div class="bar-fill warn" style="width:55%"></div></div>
-                            <span class="pct">55th</span>
-                        </div>
-                        <div class="bar-row" data-metric="grip">
-                            <span class="label">GRIP</span>
-                            <div class="bar-track"><div class="bar-fill" style="width:95%"></div></div>
-                            <span class="pct">95th</span>
-                        </div>
+                <div class="lab-rows">
+                    <div class="lab-row out" data-metric="apob">
+                        <span class="label">ApoB</span>
+                        <div class="range-track"><span class="zone" style="left:0%;width:55%"></span><span class="marker" style="left:90%"></span></div>
+                        <span class="val">104 <small>mg/dL</small></span>
                     </div>
+                    <div class="lab-row mid" data-metric="ldl">
+                        <span class="label">LDL-C</span>
+                        <div class="range-track"><span class="zone" style="left:0%;width:45%"></span><span class="marker" style="left:62%"></span></div>
+                        <span class="val">118 <small>mg/dL</small></span>
+                    </div>
+                    <div class="lab-row ok" data-metric="hba1c">
+                        <span class="label">HbA1c</span>
+                        <div class="range-track"><span class="zone" style="left:25%;width:30%"></span><span class="marker" style="left:40%"></span></div>
+                        <span class="val">5.2 <small>%</small></span>
+                    </div>
+                    <div class="lab-row ok" data-metric="crp">
+                        <span class="label">hs-CRP</span>
+                        <div class="range-track"><span class="zone" style="left:0%;width:30%"></span><span class="marker" style="left:14%"></span></div>
+                        <span class="val">0.6 <small>mg/L</small></span>
+                    </div>
+                    <div class="lab-row mid" data-metric="vitd">
+                        <span class="label">Vitamin D</span>
+                        <div class="range-track"><span class="zone" style="left:45%;width:30%"></span><span class="marker" style="left:33%"></span></div>
+                        <span class="val">31 <small>ng/mL</small></span>
+                    </div>
+                    <div class="lab-row ok" data-metric="tsh">
+                        <span class="label">TSH</span>
+                        <div class="range-track"><span class="zone" style="left:20%;width:35%"></span><span class="marker" style="left:36%"></span></div>
+                        <span class="val">1.8 <small>mIU/L</small></span>
+                    </div>
+                </div>
+
+                <div class="lab-legend mono">
+                    <span><i class="ok"></i>OPTIMAL</span>
+                    <span><i class="mid"></i>IN RANGE</span>
+                    <span><i class="out"></i>OUT OF RANGE</span>
                 </div>
 
                 <div class="result-foot">
-                    <span class="label mono">RESULT &middot; PERCENTILE</span>
-                    <span class="value">86th percentile avg</span>
+                    <span class="label mono">APOB &middot; LAST 3 DRAWS</span>
+                    <span class="value">121 &rarr; 112 &rarr; 104 mg/dL</span>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- ===== Method ===== -->
+    <!-- ===== How it works ===== -->
     <section class="method" id="method">
         <div class="method-inner">
             <div class="method-head">
-                <h2>Analyze your results</h2>
+                <h2>From results to a biological age</h2>
             </div>
             <div class="method-grid">
                 <div class="method-item">
-                    <span class="name">Age-matched norms</span>
-                    <p class="desc">Every raw score is mapped to published normative data for your age band and sex. A balanced strength profile is strongly correlated with longevity.</p>
+                    <span class="name">Every marker, over time</span>
+                    <p class="desc">See which markers are improving and how your lifestyle changes show up in your numbers. Share a scorecard of your results in one tap.</p>
                 </div>
                 <div class="method-item">
-                    <span class="name">Weighted Results</span>
-                    <p class="desc">Measures with the strongest links to function later in life carry more weight in the composite. Grip and sit-to-rise lead.</p>
+                    <span class="name">Your biological age</span>
+                    <p class="desc">Gradual Age combines your blood biomarkers (PhenoAge) with cardiorespiratory fitness, sleep, autonomic health and vascular function, then compares it with your calendar age.</p>
                 </div>
                 <div class="method-item">
-                    <span class="name">Repeatable</span>
-                    <p class="desc">Protocols are fixed so the retest is comparable as you age. Gradual designs you a plan to address any gaps and develop full-body balance.</p>
+                    <span class="name">Ask what your results mean <span class="pro-tag mono">PRO</span></span>
+                    <p class="desc">AI analysis reads your results alongside your vitals, training and habits. Ask follow-up questions and get answers grounded in your own data. For education, not diagnosis.</p>
+                </div>
+                <div class="method-item">
+                    <span class="name">Then test your fitness age</span>
+                    <p class="desc">Six guided tests you can do at home, from push-ups to a dead hang, benchmarked against people your age and sex. Retest to track your progress.</p>
                 </div>
             </div>
         </div>
@@ -714,8 +817,8 @@
         </div>
         <div class="cta">
             <div class="cta-copy">
-                <h2>Where do you stand?</h2>
-                <p>Gradual calculates your biological age and provides actionable insights with citations. Labwork, activity, sleep, biomarkers and health benchmarks all provide visibility into your holistic health profile.</p>
+                <h2>What is your blood work telling you?</h2>
+                <p>Gradual turns your lab results, activity and sleep into a biological age you can improve, with insights backed by citations. Your first lab import is free.</p>
             </div>
             <a href="https://apps.apple.com/app/id6759505043" class="app-store-badge">
                 <img src="https://developer.apple.com/assets/elements/badges/download-on-the-app-store.svg" alt="Download on the App Store">
@@ -732,35 +835,126 @@
     </div>
 
     <script>
-        // Cycle the "Physical Baseline" card: highlight one metric at a
-        // time, enlarging its bar row and the matching radar dot together.
+        // Cycle the sample lab panel: highlight one marker at a time.
         (function () {
-            var barRows = document.querySelectorAll('.bar-row[data-metric]');
-            var dots = document.querySelectorAll('.metric-dot[data-metric]');
-            if (!barRows.length || !dots.length) return;
-
-            var order = Array.prototype.map.call(barRows, function (el) {
-                return el.getAttribute('data-metric');
-            });
-
-            var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-            if (reduceMotion) return;
+            var rows = document.querySelectorAll('.lab-row[data-metric]');
+            if (!rows.length) return;
+            if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
 
             var i = 0;
-            function setActive(metric) {
-                barRows.forEach(function (el) {
-                    el.classList.toggle('is-active', el.getAttribute('data-metric') === metric);
-                });
-                dots.forEach(function (el) {
-                    el.classList.toggle('is-active', el.getAttribute('data-metric') === metric);
-                });
+            function setActive(idx) {
+                rows.forEach(function (el, n) { el.classList.toggle('is-active', n === idx); });
             }
 
-            setActive(order[0]);
+            setActive(0);
             setInterval(function () {
-                i = (i + 1) % order.length;
-                setActive(order[i]);
+                i = (i + 1) % rows.length;
+                setActive(i);
             }, 1800);
+        })();
+
+        // Auto-scroll the phone mockup's content layer to suggest the
+        // app screen is alive: ease down to reveal the cards below the
+        // fold, hold, ease back to the top, hold, repeat. The viewport
+        // is a real scroll container, so a visitor can grab it (wheel,
+        // touch-drag, trackpad) at any time — any real scroll input
+        // immediately cancels the auto-cycle and hands control back to
+        // the visitor; it only resumes after they've left it alone for a
+        // few seconds. No-op under reduced-motion.
+        (function () {
+            var viewport = document.querySelector('.phone-scroll');
+            var media = viewport ? viewport.querySelector('.phone-media') : null;
+            if (!viewport || !media) return;
+
+            if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+
+            var HOLD_TOP_MS = 2200;
+            var HOLD_BOTTOM_MS = 2200;
+            var SCROLL_MS = 3200;
+            var RESUME_AFTER_MS = 2600;
+
+            var generation = 0;      // bumped to invalidate in-flight animations
+            var programmatic = false; // true while we're writing scrollTop ourselves
+            var resumeTimer = null;
+            var running = false;
+
+            function maxScroll() {
+                return Math.max(0, media.scrollHeight - viewport.clientHeight);
+            }
+
+            function ease(t) { return 1 - Math.pow(1 - t, 3); }
+
+            function animateScrollTo(target, duration, onDone) {
+                var myGen = generation;
+                var start = viewport.scrollTop;
+                var delta = target - start;
+                var startTime = null;
+
+                function step(now) {
+                    if (myGen !== generation) return; // interrupted by user input
+                    if (startTime === null) startTime = now;
+                    var t = Math.min(1, (now - startTime) / duration);
+                    programmatic = true;
+                    viewport.scrollTop = start + delta * ease(t);
+                    programmatic = false;
+                    if (t < 1) {
+                        requestAnimationFrame(step);
+                    } else if (onDone) {
+                        onDone();
+                    }
+                }
+                requestAnimationFrame(step);
+            }
+
+            function cycle() {
+                var myGen = generation;
+                setTimeout(function () {
+                    if (myGen !== generation) return;
+                    animateScrollTo(maxScroll(), SCROLL_MS, function () {
+                        if (myGen !== generation) return;
+                        setTimeout(function () {
+                            if (myGen !== generation) return;
+                            animateScrollTo(0, SCROLL_MS, cycle);
+                        }, HOLD_BOTTOM_MS);
+                    });
+                }, HOLD_TOP_MS);
+            }
+
+            function stopAuto() {
+                generation++; // invalidates any in-flight animateScrollTo/cycle
+                running = false;
+            }
+
+            function scheduleResume() {
+                clearTimeout(resumeTimer);
+                resumeTimer = setTimeout(function () {
+                    if (!running) {
+                        running = true;
+                        cycle();
+                    }
+                }, RESUME_AFTER_MS);
+            }
+
+            // Any real scroll not caused by our own animation means the
+            // visitor grabbed it — hand back control immediately.
+            viewport.addEventListener('scroll', function () {
+                if (programmatic) return;
+                stopAuto();
+                scheduleResume();
+            }, { passive: true });
+
+            // Also stop the instant a pointer/touch/wheel interaction
+            // starts, so the visitor's first drag isn't fighting an
+            // animation frame that hasn't posted a 'scroll' event yet.
+            ['wheel', 'touchstart', 'pointerdown'].forEach(function (evt) {
+                viewport.addEventListener(evt, function () {
+                    stopAuto();
+                    scheduleResume();
+                }, { passive: true });
+            });
+
+            running = true;
+            cycle();
         })();
     </script>
 </body>
