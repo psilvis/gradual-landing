@@ -10,7 +10,7 @@
     <link rel="apple-touch-icon" href="icon.png">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
 
@@ -36,13 +36,13 @@
             background: #fff;
         }
 
-        .mono { font-family: 'IBM Plex Mono', monospace; }
+        .mono { font-variant-numeric: tabular-nums; }
 
         h2 { text-wrap: balance; }
 
         /* ===== Header ===== */
         .hero-wrapper {
-            background: linear-gradient(160deg, #101A3C 0%, #1B2A5C 100%);
+            background: var(--navy-light);
             position: relative;
         }
 
@@ -83,7 +83,7 @@
 
         nav a.nav-link {
             color: #AEB8D6;
-            font-size: 15px;
+            font-size: 16px;
             font-weight: 500;
             text-decoration: none;
             transition: color 0.2s ease;
@@ -93,25 +93,22 @@
 
         .btn-outline {
             color: #fff;
-            font-size: 15px;
+            font-size: 16px;
             font-weight: 600;
-            border: 1px solid rgba(255, 255, 255, 0.28);
-            padding: 9px 20px;
+            background: rgba(255, 255, 255, 0.1);
+            padding: 10px 20px;
             border-radius: 999px;
             text-decoration: none;
-            transition: background 0.2s ease, border-color 0.2s ease;
+            transition: background 0.2s ease;
             white-space: nowrap;
         }
 
-        .btn-outline:hover {
-            background: rgba(255, 255, 255, 0.08);
-            border-color: rgba(255, 255, 255, 0.5);
-        }
+        .btn-outline:hover { background: rgba(255, 255, 255, 0.18); }
 
         /* ===== Hero ===== */
         .hero {
             display: grid;
-            grid-template-columns: 1fr 420px;
+            grid-template-columns: 1fr 460px;
             align-items: center;
             gap: 64px;
             padding: 40px 80px 0;
@@ -139,9 +136,9 @@
 
         .hero-copy p {
             color: #C3CBE4;
-            font-size: 22px;
-            line-height: 1.5;
-            max-width: 560px;
+            font-size: 20px;
+            line-height: 1.55;
+            max-width: 540px;
             text-wrap: pretty;
         }
 
@@ -165,24 +162,13 @@
             align-items: center;
             position: relative;
             z-index: 3;
-            height: 680px;
-        }
-
-        .phone-glow {
-            position: absolute;
-            right: -10px;
-            top: 50%;
-            width: 420px;
-            height: 420px;
-            transform: translateY(-50%);
-            border-radius: 50%;
-            background: radial-gradient(circle, rgba(122,142,214,0.22) 0%, rgba(16,26,60,0) 70%);
+            height: 760px;
         }
 
         .phone-frame {
-            width: 300px;
-            aspect-ratio: 300 / 629;
-            border-radius: 44px;
+            width: 340px;
+            aspect-ratio: 340 / 709;
+            border-radius: 48px;
             background: var(--navy);
             border: 10px solid var(--navy);
             box-shadow: 0 40px 90px rgba(0,0,0,0.45), 0 0 0 1px rgba(255,255,255,0.14);
@@ -207,7 +193,7 @@
             width: 100%;
             height: 100%;
             object-fit: cover;
-            border-radius: 34px;
+            border-radius: 38px;
             background: #F7F8FA;
         }
 
@@ -240,7 +226,7 @@
 
         .section-head h2 {
             color: var(--navy);
-            font-size: 52px;
+            font-size: 48px;
             line-height: 1.04;
             font-weight: 400;
             letter-spacing: -0.025em;
@@ -249,35 +235,24 @@
 
         .section-head p {
             color: var(--slate-600);
-            font-size: 17px;
+            font-size: 16px;
             line-height: 1.6;
-            max-width: 400px;
+            max-width: 420px;
             text-wrap: pretty;
         }
 
         .tests-grid {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
-            gap: 20px;
+            gap: 40px 48px;
+            padding: 48px;
+            border-radius: 20px;
+            background: var(--paper);
         }
 
-        .test-card {
-            display: flex;
-            flex-direction: column;
-            gap: 12px;
-            padding: 32px;
-            border: 1px solid var(--border);
-            border-radius: 14px;
-            transition: box-shadow 0.2s ease, transform 0.2s ease;
-        }
-
-        .test-card:hover {
-            box-shadow: 0 12px 32px rgba(16,24,48,0.08);
-            transform: translateY(-2px);
-        }
-
-        .test-card .name { color: var(--navy); font-size: 22px; font-weight: 700; }
-        .test-card .desc { color: #5A6480; font-size: 16px; line-height: 1.55; }
+        .test-card { display: flex; flex-direction: column; gap: 6px; }
+        .test-card .name { color: var(--navy); font-size: 20px; font-weight: 700; }
+        .test-card .desc { color: var(--slate-600); font-size: 16px; line-height: 1.55; }
 
         /* ===== Results section ===== */
         .results {
@@ -311,7 +286,7 @@
 
         .results-copy p {
             color: #A9B6AE;
-            font-size: 18px;
+            font-size: 16px;
             line-height: 1.6;
             text-wrap: pretty;
         }
@@ -327,8 +302,8 @@
             border-radius: 12px;
         }
 
-        .stat-pill .num { color: #fff; font-size: 26px; font-weight: 700; }
-        .stat-pill .label { font-size: 12px; color: #7E8C85; letter-spacing: 0.08em; }
+        .stat-pill .num { color: #fff; font-size: 24px; font-weight: 700; }
+        .stat-pill .label { font-size: 14px; color: #A9B6AE; }
 
         .result-card {
             flex: 1;
@@ -338,7 +313,6 @@
             gap: 28px;
             padding: 40px;
             background: #16241E;
-            border: 1px solid rgba(255,255,255,0.08);
             border-radius: 20px;
         }
 
@@ -351,8 +325,8 @@
         }
 
         .result-head .title { color: #fff; font-size: 24px; font-weight: 800; letter-spacing: -0.01em; }
-        .result-head .subtitle { color: #8A9A92; font-size: 15px; }
-        .result-head .date { font-size: 12px; color: #7E8C85; letter-spacing: 0.1em; }
+        .result-head .subtitle { color: #A9B6AE; font-size: 14px; }
+        .result-head .date { font-size: 14px; color: #A9B6AE; }
 
         /* Sample lab panel: each row shows a marker's position on its
            range, with the optimal zone tinted green. Status colours
@@ -369,9 +343,9 @@
             transition: transform 0.5s cubic-bezier(0.22, 1, 0.36, 1);
         }
 
-        .lab-row .label { color: #fff; font-size: 15px; font-weight: 600; transition: opacity 0.5s ease; }
+        .lab-row .label { color: #fff; font-size: 16px; font-weight: 600; transition: opacity 0.5s ease; }
         .lab-row .val { color: #fff; font-size: 16px; font-weight: 700; text-align: right; white-space: nowrap; transition: opacity 0.5s ease; }
-        .lab-row .val small { color: #8A9A92; font-size: 12px; font-weight: 500; }
+        .lab-row .val small { color: #A9B6AE; font-size: 13px; font-weight: 500; }
 
         .range-track {
             position: relative;
@@ -414,7 +388,7 @@
             opacity: 0.55;
         }
 
-        .lab-legend { display: flex; gap: 22px; flex-wrap: wrap; font-size: 11px; color: #7E8C85; letter-spacing: 0.08em; }
+        .lab-legend { display: flex; gap: 22px; flex-wrap: wrap; font-size: 13px; color: #A9B6AE; }
         .lab-legend span { display: inline-flex; align-items: center; gap: 8px; }
         .lab-legend i { width: 8px; height: 8px; border-radius: 50%; background: var(--green); }
         .lab-legend i.mid { background: var(--amber); }
@@ -427,9 +401,9 @@
             border-radius: 6px;
             background: #E8EDFF;
             color: #2E5BFF;
-            font-size: 11px;
-            font-weight: 500;
-            letter-spacing: 0.08em;
+            font-size: 13px;
+            font-weight: 700;
+            letter-spacing: 0.02em;
             vertical-align: middle;
         }
 
@@ -437,14 +411,16 @@
             display: flex;
             align-items: center;
             justify-content: space-between;
-            padding-top: 20px;
-            border-top: 1px solid rgba(255,255,255,0.08);
+            margin-top: 4px;
+            padding: 16px 20px;
+            border-radius: 12px;
+            background: rgba(255,255,255,0.05);
             flex-wrap: wrap;
             gap: 8px;
         }
 
-        .result-foot .label { font-size: 12px; color: #7E8C85; letter-spacing: 0.1em; }
-        .result-foot .value { color: #fff; font-size: 19px; font-weight: 400; }
+        .result-foot .label { font-size: 14px; color: #A9B6AE; }
+        .result-foot .value { color: #fff; font-size: 20px; font-weight: 500; }
 
         /* ===== Method section ===== */
         .method {
@@ -457,7 +433,7 @@
         .method-head { display: flex; flex-direction: column; gap: 18px; max-width: 640px; margin-bottom: 48px; }
         .method-head h2 {
             color: var(--navy);
-            font-size: 52px;
+            font-size: 48px;
             line-height: 1.04;
             font-weight: 400;
             letter-spacing: -0.025em;
@@ -465,11 +441,11 @@
 
         .method-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 40px; }
         .method-item { display: flex; flex-direction: column; gap: 14px; }
-        .method-item .name { color: var(--navy); font-size: 21px; font-weight: 700; }
+        .method-item .name { color: var(--navy); font-size: 20px; font-weight: 700; }
         .method-item .desc { color: var(--slate-600); font-size: 16px; line-height: 1.65; text-wrap: pretty; }
 
         /* ===== CTA / Footer ===== */
-        .cta-wrapper { background: linear-gradient(160deg, #101A3C 0%, #1B2A5C 100%); position: relative; }
+        .cta-wrapper { background: var(--navy-light); position: relative; }
         .cta-wrapper .wave-divider { margin-top: 0; }
         .cta-wrapper .wave-divider svg { height: 120px; }
 
@@ -487,12 +463,12 @@
         .cta-copy { display: flex; flex-direction: column; gap: 20px; max-width: 600px; }
         .cta-copy h2 {
             color: #fff;
-            font-size: 52px;
+            font-size: 48px;
             line-height: 1.02;
             font-weight: 400;
             letter-spacing: -0.03em;
         }
-        .cta-copy p { color: #AEB8D6; font-size: 19px; line-height: 1.5; }
+        .cta-copy p { color: #C3CBE4; font-size: 20px; line-height: 1.5; }
 
         footer {
             display: flex;
@@ -501,16 +477,15 @@
             padding: 28px 80px;
             max-width: 1440px;
             margin: 0 auto;
-            border-top: 1px solid rgba(255,255,255,0.1);
             flex-wrap: wrap;
             gap: 12px;
         }
 
-        footer .copyright { color: #7A86A8; font-size: 14px; }
+        footer .copyright { color: #9AA6C6; font-size: 14px; }
 
         footer .footer-links { display: flex; gap: 32px; flex-wrap: wrap; }
         footer .footer-links a {
-            color: #7A86A8;
+            color: #9AA6C6;
             font-size: 14px;
             text-decoration: none;
             transition: color 0.2s ease;
@@ -532,11 +507,11 @@
             .hero-copy h1 { font-size: 48px; }
             .hero-copy p { font-size: 18px; }
             .phone-stage { justify-content: center; height: auto; padding: 20px 0; }
-            .phone-frame { width: 240px; }
+            .phone-frame { width: 260px; }
 
             section.content { padding: 24px 32px 72px; }
             .section-head h2, .method-head h2, .results-copy h2, .cta-copy h2 { font-size: 34px; }
-            .tests-grid { grid-template-columns: 1fr 1fr; }
+            .tests-grid { grid-template-columns: 1fr 1fr; padding: 32px; gap: 28px 32px; }
             .method-grid { grid-template-columns: 1fr; gap: 32px; }
 
             .results { padding: 64px 32px; }
@@ -548,13 +523,13 @@
         }
 
         @media (max-width: 560px) {
-            .tests-grid { grid-template-columns: 1fr; }
+            .tests-grid { grid-template-columns: 1fr; padding: 28px 24px; gap: 22px; }
             .hero-copy h1 { font-size: 38px; }
             .result-card { padding: 24px 20px; }
             .lab-row { grid-template-columns: 70px 1fr 88px; gap: 12px; }
-            .lab-row .label { font-size: 13px; }
+            .lab-row .label { font-size: 14px; }
             .lab-row .val { font-size: 14px; }
-            .lab-row .val small { font-size: 11px; }
+            .lab-row .val small { font-size: 13px; }
         }
     </style>
 </head>
@@ -586,7 +561,6 @@
             </div>
 
             <div class="phone-stage">
-                <div class="phone-glow"></div>
                 <div class="phone-frame">
                     <video class="phone-media" src="assets/labs-app.mp4" poster="assets/labs-app-poster.jpg" autoplay muted loop playsinline preload="auto" aria-label="Gradual Labs tab: new lab results, ApoB across three blood tests, and blood age"></video>
                 </div>
@@ -643,11 +617,11 @@
                 <div class="stat-row">
                     <div class="stat-pill">
                         <span class="num">40+</span>
-                        <span class="label mono">BIOMARKERS</span>
+                        <span class="label">Biomarkers</span>
                     </div>
                     <div class="stat-pill">
                         <span class="num">Any lab</span>
-                        <span class="label mono">INCLUDING APPLE HEALTH</span>
+                        <span class="label">Including Apple Health</span>
                     </div>
                 </div>
             </div>
@@ -658,7 +632,7 @@
                         <div class="title">Lab Results</div>
                         <div class="subtitle">Taylor &middot; Sample panel</div>
                     </div>
-                    <span class="date mono">SEP 28, 2026</span>
+                    <span class="date mono">Sep 28, 2026</span>
                 </div>
 
                 <div class="lab-rows">
@@ -695,14 +669,14 @@
                 </div>
 
                 <div class="lab-legend mono">
-                    <span><i class="ok"></i>OPTIMAL</span>
-                    <span><i class="mid"></i>IN RANGE</span>
-                    <span><i class="out"></i>OUT OF RANGE</span>
+                    <span><i class="ok"></i>Optimal</span>
+                    <span><i class="mid"></i>In range</span>
+                    <span><i class="out"></i>Out of range</span>
                 </div>
 
                 <div class="result-foot">
-                    <span class="label mono">APOB &middot; LAST 3 DRAWS</span>
-                    <span class="value">121 &rarr; 112 &rarr; 104 mg/dL</span>
+                    <span class="label">ApoB, last three tests</span>
+                    <span class="value mono">121 &rarr; 112 &rarr; 104 mg/dL</span>
                 </div>
             </div>
         </div>
@@ -712,7 +686,7 @@
     <section class="method" id="method">
         <div class="method-inner">
             <div class="method-head">
-                <h2>More than a lab report</h2>
+                <h2>Labs are the start</h2>
             </div>
             <div class="method-grid">
                 <div class="method-item">
