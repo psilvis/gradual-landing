@@ -430,7 +430,7 @@
 
         .method-inner { max-width: 1440px; margin: 0 auto; }
 
-        .method-head { display: flex; flex-direction: column; gap: 18px; max-width: 640px; margin-bottom: 48px; }
+        .method-head { display: flex; flex-direction: column; gap: 18px; max-width: 640px; margin-bottom: 88px; }
         .method-head h2 {
             color: var(--navy);
             font-size: 48px;
@@ -439,10 +439,39 @@
             letter-spacing: -0.025em;
         }
 
-        .method-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 40px; }
-        .method-item { display: flex; flex-direction: column; gap: 14px; }
-        .method-item .name { color: var(--navy); font-size: 20px; font-weight: 700; }
-        .method-item .desc { color: var(--slate-600); font-size: 16px; line-height: 1.65; text-wrap: pretty; }
+        .method-list { display: flex; flex-direction: column; gap: 112px; }
+        .method-item {
+            display: grid;
+            grid-template-columns: minmax(0, 5fr) minmax(0, 6fr);
+            gap: 80px;
+            align-items: center;
+        }
+        .method-item:nth-child(even) { grid-template-columns: minmax(0, 6fr) minmax(0, 5fr); }
+        .method-item:nth-child(even) .method-copy { order: 2; }
+        .method-copy { display: flex; flex-direction: column; gap: 16px; max-width: 460px; }
+        .method-item:nth-child(even) .method-copy { justify-self: start; }
+        .method-item .name { color: var(--navy); font-size: 24px; line-height: 1.15; font-weight: 600; letter-spacing: -0.015em; }
+        .method-item .desc { color: var(--slate-600); font-size: 18px; line-height: 1.65; text-wrap: pretty; }
+
+        /* App screens, cropped to the relevant part. Widths vary so the
+           column of screens doesn't read as a template. */
+        .method-shot { justify-self: center; width: 100%; max-width: 440px; }
+        .method-item:nth-child(2) .method-shot { max-width: 480px; }
+        .method-item:nth-child(3) .method-shot { max-width: 460px; justify-self: end; }
+        .method-shot {
+            padding: 32px 32px 0;
+            border-radius: 32px;
+            background: #E6EBF5;
+            overflow: hidden;
+        }
+        .method-item:nth-child(even) .method-shot { background: #DFE6F3; }
+        .method-shot img {
+            display: block;
+            width: 100%;
+            height: auto;
+            border-radius: 20px 20px 0 0;
+            background: #fff;
+        }
 
         /* ===== CTA / Footer ===== */
         .cta-wrapper { background: var(--navy-light); position: relative; }
@@ -494,7 +523,7 @@
 
         /* ===== Responsive ===== */
         @media (max-width: 1200px) {
-            .method-grid { grid-template-columns: repeat(2, 1fr); }
+            .method-item, .method-item:nth-child(even) { gap: 56px; }
             .hero-copy h1 { font-size: 58px; }
         }
 
@@ -512,7 +541,12 @@
             section.content { padding: 24px 32px 72px; }
             .section-head h2, .method-head h2, .results-copy h2, .cta-copy h2 { font-size: 34px; }
             .tests-grid { grid-template-columns: 1fr 1fr; padding: 32px; gap: 28px 32px; }
-            .method-grid { grid-template-columns: 1fr; gap: 32px; }
+            .method-list { gap: 72px; }
+            .method-item, .method-item:nth-child(even) { grid-template-columns: 1fr; gap: 32px; }
+            .method-item:nth-child(even) .method-copy { order: 0; }
+            .method-shot, .method-item:nth-child(3) .method-shot { justify-self: start; max-width: 400px; }
+            .method-item .desc { font-size: 16px; }
+            .method-shot { padding: 24px 24px 0; }
 
             .results { padding: 64px 32px; }
             .results-inner { flex-direction: column; gap: 48px; }
@@ -688,22 +722,42 @@
             <div class="method-head">
                 <h2>Labs are the start</h2>
             </div>
-            <div class="method-grid">
+            <div class="method-list">
                 <div class="method-item">
-                    <span class="name">Trends across tests</span>
-                    <p class="desc">Each marker gets a chart across every test you&rsquo;ve added, so you can check whether the diet change or new supplement moved anything. You can also export a panel as an image to share.</p>
+                    <div class="method-copy">
+                        <h3 class="name">Trends across tests</h3>
+                        <p class="desc">Each marker gets a chart across every test you&rsquo;ve added, so you can check whether the diet change or new supplement moved anything. You can also export a panel as an image to share.</p>
+                    </div>
+                    <figure class="method-shot">
+                        <img src="assets/screen-trends.webp" width="720" height="1015" loading="lazy" decoding="async" alt="ApoB marker screen in Gradual with a history chart across three tests">
+                    </figure>
                 </div>
                 <div class="method-item">
-                    <span class="name">Gradual Age</span>
-                    <p class="desc">A biological age estimate. It starts with PhenoAge, which is calculated from nine blood markers, then adds fitness, sleep and heart data from Apple Health.</p>
+                    <div class="method-copy">
+                        <h3 class="name">Gradual Age</h3>
+                        <p class="desc">A biological age estimate. It starts with PhenoAge, which is calculated from nine blood markers, then adds fitness, sleep and heart data from Apple Health.</p>
+                    </div>
+                    <figure class="method-shot">
+                        <img src="assets/screen-gradual-age.webp" width="720" height="776" loading="lazy" decoding="async" alt="Gradual Age screen showing an age of 28, 6.9 years younger than actual age">
+                    </figure>
                 </div>
                 <div class="method-item">
-                    <span class="name">Ask about your results <span class="pro-tag mono">PRO</span></span>
-                    <p class="desc">Ask questions and get answers that take your vitals, training and habits into account. It&rsquo;s there to help you understand your numbers. It doesn&rsquo;t diagnose anything.</p>
+                    <div class="method-copy">
+                        <h3 class="name">Ask about your results <span class="pro-tag mono">PRO</span></h3>
+                        <p class="desc">Ask questions and get answers that take your vitals, training and habits into account. It&rsquo;s there to help you understand your numbers. It doesn&rsquo;t diagnose anything.</p>
+                    </div>
+                    <figure class="method-shot">
+                        <img src="assets/screen-ask.webp" width="720" height="1051" loading="lazy" decoding="async" alt="Gradual answering a question about an ApoB result">
+                    </figure>
                 </div>
                 <div class="method-item">
-                    <span class="name">At-home fitness tests</span>
-                    <p class="desc">Dead hang, push-ups, balance and a few others, scored against people your age and sex. Repeat them every few months and compare.</p>
+                    <div class="method-copy">
+                        <h3 class="name">At-home fitness tests</h3>
+                        <p class="desc">Dead hang, push-ups, balance and a few others, scored against people your age and sex. Repeat them every few months and compare.</p>
+                    </div>
+                    <figure class="method-shot">
+                        <img src="assets/screen-baseline.webp" width="720" height="1122" loading="lazy" decoding="async" alt="Physical Baseline screen with a radar chart and push-up and dead hang scores">
+                    </figure>
                 </div>
             </div>
         </div>
