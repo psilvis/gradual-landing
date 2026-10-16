@@ -155,16 +155,17 @@
 
         .app-store-badge img { height: 56px; display: block; }
 
-        /* ===== Phone mockup — swap the screenshot by replacing the
-           image at assets/app-screenshot.png (or point .phone-media at
-           a <video> instead of an <img>; see markup below). ===== */
+        /* ===== Phone mockup — plays the labs screen recording from the
+           App Store hero (assets/labs-app.mp4, 1206x2622 source scaled
+           to 600px). The frame's aspect ratio matches the recording so
+           nothing is cropped. ===== */
         .phone-stage {
             display: flex;
             justify-content: flex-end;
             align-items: center;
             position: relative;
             z-index: 3;
-            height: 560px;
+            height: 680px;
         }
 
         .phone-glow {
@@ -180,7 +181,7 @@
 
         .phone-frame {
             width: 300px;
-            height: 600px;
+            aspect-ratio: 300 / 629;
             border-radius: 44px;
             background: var(--navy);
             border: 10px solid var(--navy);
@@ -201,67 +202,13 @@
             .phone-frame { transition: none; }
         }
 
-        /* Scroll viewport: content-strip.png (everything above the tab
-           bar) renders at its natural tall aspect ratio and is scrolled
-           programmatically — see the auto-scroll script at the bottom of
-           the page. Hidden scrollbar keeps it looking like the app, not
-           a webpage. Bottom padding keeps the last card clear of the
-           fixed tab bar docked on top of it. */
-        .phone-scroll {
-            position: absolute;
-            inset: 0;
-            overflow-x: hidden;
-            overflow-y: scroll;
-            scrollbar-width: none;
-            -ms-overflow-style: none;
-        }
-
-        .phone-scroll::-webkit-scrollbar { display: none; }
-
-        /* content-strip.png (1179x2070) scaled to the frame's width would
-           come out shorter than the visible viewport, leaving nothing to
-           scroll. Rendering it a bit larger than the frame — like a
-           slightly-zoomed-in camera on the real screen — guarantees real
-           overflow, so the auto-scroll below has genuine distance to
-           cover, the same way scrolling the real app reveals cards
-           below the fold. */
         .phone-media {
             display: block;
-            width: 108%;
-            max-width: none;
-            height: auto;
-            margin-left: -4%;
-            padding-bottom: 90px;
-            background: linear-gradient(160deg, #1B2A5C 0%, #101A3C 100%);
-        }
-
-        /* Fixed tab bar: pinned to the bottom of the frame, never
-           scrolls. A soft fade above it stands in for the app's own
-           translucent nav background so scrolled content doesn't hard-cut
-           underneath it. */
-        .phone-tabbar-dock {
-            position: absolute;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            z-index: 2;
-            pointer-events: none;
-        }
-
-        .phone-tabbar-dock::before {
-            content: '';
-            position: absolute;
-            left: 0;
-            right: 0;
-            bottom: 100%;
-            height: 28px;
-            background: linear-gradient(to top, rgba(251,251,249,0.95), rgba(251,251,249,0));
-        }
-
-        .phone-tabbar-dock img {
-            display: block;
             width: 100%;
-            height: auto;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 34px;
+            background: #F7F8FA;
         }
 
         .wave-divider {
@@ -585,7 +532,7 @@
             .hero-copy h1 { font-size: 48px; }
             .hero-copy p { font-size: 18px; }
             .phone-stage { justify-content: center; height: auto; padding: 20px 0; }
-            .phone-frame { width: 220px; height: 440px; }
+            .phone-frame { width: 240px; }
 
             section.content { padding: 24px 32px 72px; }
             .section-head h2, .method-head h2, .results-copy h2, .cta-copy h2 { font-size: 34px; }
@@ -641,27 +588,7 @@
             <div class="phone-stage">
                 <div class="phone-glow"></div>
                 <div class="phone-frame">
-                    <!--
-                        Swap the app-store screenshot here. The screen is
-                        split into two images so the tab bar can stay
-                        fixed while the content above it scrolls, matching
-                        real app behavior:
-                          - assets/labs-content-strip.png: everything above
-                            the tab bar (header, filters, marker cards). Auto-scrolls
-                            inside .phone-scroll — see script at the
-                            bottom of the page.
-                          - assets/labs-tabbar-strip.png: just the tab bar,
-                            pinned via .phone-tabbar-dock, never scrolls.
-                        To swap in a new screenshot: crop it the same way
-                        (content above the tab bar / the tab bar itself)
-                        and replace both files.
-                    -->
-                    <div class="phone-scroll">
-                        <img class="phone-media" src="assets/labs-content-strip.png" alt="Gradual Labs tab showing lab results against optimal ranges" onerror="this.closest('.phone-scroll').style.display='none'">
-                    </div>
-                    <div class="phone-tabbar-dock">
-                        <img src="assets/labs-tabbar-strip.png" alt="">
-                    </div>
+                    <video class="phone-media" src="assets/labs-app.mp4" poster="assets/labs-app-poster.jpg" autoplay muted loop playsinline preload="auto" aria-label="Gradual Labs tab: importing a lab report, reviewing ApoB across three draws, and blood age"></video>
                 </div>
             </div>
         </div>
@@ -853,109 +780,11 @@
             }, 1800);
         })();
 
-        // Auto-scroll the phone mockup's content layer to suggest the
-        // app screen is alive: ease down to reveal the cards below the
-        // fold, hold, ease back to the top, hold, repeat. The viewport
-        // is a real scroll container, so a visitor can grab it (wheel,
-        // touch-drag, trackpad) at any time — any real scroll input
-        // immediately cancels the auto-cycle and hands control back to
-        // the visitor; it only resumes after they've left it alone for a
-        // few seconds. No-op under reduced-motion.
-        (function () {
-            var viewport = document.querySelector('.phone-scroll');
-            var media = viewport ? viewport.querySelector('.phone-media') : null;
-            if (!viewport || !media) return;
-
-            if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
-
-            var HOLD_TOP_MS = 2200;
-            var HOLD_BOTTOM_MS = 2200;
-            var SCROLL_MS = 3200;
-            var RESUME_AFTER_MS = 2600;
-
-            var generation = 0;      // bumped to invalidate in-flight animations
-            var programmatic = false; // true while we're writing scrollTop ourselves
-            var resumeTimer = null;
-            var running = false;
-
-            function maxScroll() {
-                return Math.max(0, media.scrollHeight - viewport.clientHeight);
-            }
-
-            function ease(t) { return 1 - Math.pow(1 - t, 3); }
-
-            function animateScrollTo(target, duration, onDone) {
-                var myGen = generation;
-                var start = viewport.scrollTop;
-                var delta = target - start;
-                var startTime = null;
-
-                function step(now) {
-                    if (myGen !== generation) return; // interrupted by user input
-                    if (startTime === null) startTime = now;
-                    var t = Math.min(1, (now - startTime) / duration);
-                    programmatic = true;
-                    viewport.scrollTop = start + delta * ease(t);
-                    programmatic = false;
-                    if (t < 1) {
-                        requestAnimationFrame(step);
-                    } else if (onDone) {
-                        onDone();
-                    }
-                }
-                requestAnimationFrame(step);
-            }
-
-            function cycle() {
-                var myGen = generation;
-                setTimeout(function () {
-                    if (myGen !== generation) return;
-                    animateScrollTo(maxScroll(), SCROLL_MS, function () {
-                        if (myGen !== generation) return;
-                        setTimeout(function () {
-                            if (myGen !== generation) return;
-                            animateScrollTo(0, SCROLL_MS, cycle);
-                        }, HOLD_BOTTOM_MS);
-                    });
-                }, HOLD_TOP_MS);
-            }
-
-            function stopAuto() {
-                generation++; // invalidates any in-flight animateScrollTo/cycle
-                running = false;
-            }
-
-            function scheduleResume() {
-                clearTimeout(resumeTimer);
-                resumeTimer = setTimeout(function () {
-                    if (!running) {
-                        running = true;
-                        cycle();
-                    }
-                }, RESUME_AFTER_MS);
-            }
-
-            // Any real scroll not caused by our own animation means the
-            // visitor grabbed it — hand back control immediately.
-            viewport.addEventListener('scroll', function () {
-                if (programmatic) return;
-                stopAuto();
-                scheduleResume();
-            }, { passive: true });
-
-            // Also stop the instant a pointer/touch/wheel interaction
-            // starts, so the visitor's first drag isn't fighting an
-            // animation frame that hasn't posted a 'scroll' event yet.
-            ['wheel', 'touchstart', 'pointerdown'].forEach(function (evt) {
-                viewport.addEventListener(evt, function () {
-                    stopAuto();
-                    scheduleResume();
-                }, { passive: true });
-            });
-
-            running = true;
-            cycle();
-        })();
+        // Respect reduced motion: show the first frame instead of looping.
+        if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+            var phoneVideo = document.querySelector('.phone-media');
+            if (phoneVideo) { phoneVideo.removeAttribute('autoplay'); phoneVideo.pause(); }
+        }
     </script>
 </body>
 </html>
