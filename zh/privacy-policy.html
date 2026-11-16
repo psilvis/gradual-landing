@@ -195,126 +195,127 @@
             <img src="../icon.png" alt="Gradual" class="logo">
             <p class="app-name">Gradual</p>
             <h1>隐私政策</h1>
-            <span class="last-updated">最后更新：2025年2月26日</span>
+            <span class="last-updated">最后更新：2026年11月16日</span>
         </header>
 
         <section>
             <h2>1. 概述</h2>
-            <p>Gradual（"本应用"）采用隐私优先的设计理念。您的健康数据安全地存储在您的设备上，并通过Apple的iCloud服务（CloudKit）进行同步。您的数据绝不会存储在Lawton Labs的服务器上。某些功能涉及第三方服务，如下所述。</p>
+            <p>Gradual（"本应用"）由Lawton Labs开发。您的健康数据存储在您的设备上，并通过Apple的CloudKit经由您自己的iCloud账户进行同步。Lawton Labs不会在其服务器上保存您的健康数据。部分可选功能会将数据发送给本政策中列明的第三方服务，在其中任何一方接收您的个人数据或健康数据之前，本应用都会征得您的许可。</p>
         </section>
 
         <section>
-            <h2>2. 我们收集的数据</h2>
-            <p>本应用在您的设备本地收集并存储以下数据：</p>
+            <h2>2. 我们收集的数据及收集方式</h2>
+            <p>本应用在您的设备和您的iCloud账户中存储以下数据：</p>
             <ul>
-                <li><strong>个人资料信息</strong> — 您在引导流程中输入的姓名和偏好设置。</li>
-                <li><strong>健康指标</strong> — 经您明确授权后从Apple HealthKit获取的数据（步数、心率、HRV、睡眠、VO2max等指标）。</li>
-                <li><strong>活动数据</strong> — 来自Strava的运动和活动信息。</li>
-                <li><strong>化验结果</strong> — 从您导入的化验报告中提取的生物标志物数值。</li>
-                <li><strong>补充剂方案</strong> — 您创建的补充剂、剂量和依从性记录。</li>
-                <li><strong>情绪记录</strong> — 您记录的每日情绪和压力评分。</li>
+                <li><strong>个人资料信息</strong>：您输入的姓名、出生年份或年龄、生理性别、身高、体重和目标，以及您的"通过 Apple 登录"用户ID。</li>
+                <li><strong>健康指标</strong>：您允许本应用从Apple Health读取的数据，例如步数、心率、心率变异性、睡眠、VO2 Max、血压、身体测量数据、体能训练和临床化验记录。</li>
+                <li><strong>化验结果</strong>：您手动输入、从化验报告导入或从Apple Health读取的生物标志物数值。</li>
+                <li><strong>训练和训练计划</strong>：您在本应用中记录的动作、组数、重量、模板、计划和偏好，以及您连接Strava后来自Strava的活动。</li>
+                <li><strong>习惯和补充剂</strong>：您记录的方案、剂量和完成记录。</li>
+                <li><strong>AI聊天记录和已保存的AI记忆</strong>（如果您使用"询问 Gradual"）。</li>
+                <li><strong>语音录音</strong>，仅在您录制语音训练请求时产生。转写完成后，录音不会保留在设备上。</li>
             </ul>
-            <div class="highlight">
-                <p>以上所有数据均在设备上加密，并通过Apple iCloud (CloudKit) 安全同步。您的数据存储在您的个人iCloud账户中，绝不会存储在Lawton Labs的服务器上。</p>
-            </div>
+            <p>我们仅将这些数据用于提供本应用的功能：显示您的健康趋势、计算Gradual 年龄和准备度、记录习惯和训练，以及在您开启后提供下文所述的AI功能。我们不会出售您的数据，也不会将其用于广告。</p>
         </section>
 
         <section>
-            <h2>3. 与第三方共享的数据</h2>
-            <p><strong>OpenAI（化验报告处理）</strong></p>
-            <p>当您使用化验导入功能并选择AI解析时，您的化验报告PDF将被发送至OpenAI的API进行AI驱动的生物标志物提取。这意味着：</p>
+            <h2>3. AI功能和AI服务提供商</h2>
+            <p>AI功能均为可选。每项功能都会显示一个同意界面，列明服务提供商及其接收的数据；在您点击"启用"之前，不会发送任何数据。您可以随时在设置 &rarr; 数据与隐私中关闭任何一项功能。请求会经过我们托管在Cloudflare上的服务器，该服务器仅负责转发，不存储请求内容。</p>
+            <p><strong>Anthropic（Claude）</strong>负责本应用的AI处理：</p>
             <ul>
-                <li>您的化验报告PDF — 可能包含您的姓名、生物标志物数值、参考范围、实验室名称和检测日期 — 将被传输至OpenAI的服务器进行处理。</li>
-                <li>OpenAI根据OpenAI API使用条款和隐私政策处理此数据。</li>
-                <li>根据OpenAI的API数据使用政策，通过API发送的数据不会被用于训练OpenAI的模型。</li>
-                <li>数据通过加密的HTTPS连接传输。</li>
-                <li>除报告内容外，不会传输任何设备标识符或个人信息。</li>
-                <li>如果AI解析器失败，本应用将回退到完全本地的正则表达式解析器，不会传输任何数据。</li>
+                <li><strong>化验报告导入</strong>：您选择的化验报告（可能包含您的姓名、生物标志物数值、参考范围、实验室名称和检测日期）将被发送，用于提取您的结果。每次导入前都会显示同意对话框。</li>
+                <li><strong>AI 洞察和化验摘要</strong>（在您启用AI 洞察后）：与每条洞察相关的健康数据，例如化验结果、生命体征、睡眠、准备度评分、习惯、训练和营养记录，以及您的年龄段和生理性别。</li>
+                <li><strong>"询问 Gradual"聊天</strong>（在您启用聊天后）：您的问题及回答所需的健康数据（从上述相同类别中选取），以及您已保存的AI记忆。</li>
+                <li><strong>AI 训练和训练计划</strong>（在您启用AI 训练后）：您提出的要求、您最近的训练和已保存的模板、已保存的训练偏好、年龄段、生理性别以及大致身高和体重。</li>
+                <li><strong>训练文件导入</strong>：在确认对话框之后，仅发送本应用无法自行匹配的动作名称。不会发送重量、次数或日期。</li>
             </ul>
-            <p>您可以通过不使用PDF化验导入功能来避免与OpenAI共享化验数据。"粘贴结果"选项使用设备端解析器，不会传输任何数据。</p>
+            <p><strong>OpenAI</strong>负责转写语音训练的语音录音（在您启用AI 训练后）。录音仅用于转写。转写得到的文字随后按上文所述由Anthropic处理。</p>
+            <p>我们不会随AI请求发送姓名、电子邮件地址或设备标识符。两家服务提供商均根据其商业API条款处理这些数据，这些条款不允许其使用这些数据训练模型，并限制数据的保留时间。正如其隐私政策所述（<a href="https://www.anthropic.com/legal/privacy">Anthropic</a>、<a href="https://openai.com/policies/privacy-policy">OpenAI</a>），它们可能会出于安全和滥用监控目的在有限期限内保留请求。我们选择这些服务提供商，是因为其条款对您数据的保护程度至少与本政策相当。</p>
+            <p>即使不使用AI功能，本应用仍可正常使用：您可以手动输入化验结果或从Apple Health读取，化验卡片会改为显示在您设备上计算的摘要。</p>
         </section>
 
         <section>
-            <h2>4. Apple HealthKit数据</h2>
-            <p>通过Apple HealthKit访问的健康数据按照Apple的HealthKit指南进行处理：</p>
+            <h2>4. Apple Health</h2>
             <ul>
-                <li>仅在您授予明确权限后才会访问数据。</li>
-                <li>HealthKit数据仅供读取 — 本应用不会向HealthKit写入数据。</li>
-                <li>HealthKit数据通过您的个人iCloud账户使用Apple的CloudKit进行同步。此数据存储在您的私有iCloud容器中，绝不会存储在Lawton Labs的服务器上或传输给第三方。</li>
-                <li>HealthKit数据绝不会用于广告或营销目的。</li>
-            </ul>
-        </section>
-
-        <section>
-            <h2>5. Strava集成</h2>
-            <p>当您连接Strava账户时：</p>
-            <ul>
-                <li>身份验证使用OAuth 2.0与PKCE — 本应用绝不会看到或存储您的Strava密码。</li>
-                <li>仅从Strava的API获取活动数据（类型、时长、距离、心率）。</li>
-                <li>获取的活动数据缓存在您的设备本地。</li>
-                <li>您可以随时从个人资料页面断开Strava连接。</li>
+                <li>本应用仅在您授予权限后读取Apple Health数据，并且仅读取您允许的数据类型。</li>
+                <li>本应用会将您完成的训练和您输入的体重写入Apple Health。</li>
+                <li>Apple Health数据绝不会用于广告或营销，也绝不会发送给分析或归因服务。</li>
+                <li>Apple Health数据仅在您同意后，通过第3节所述的AI功能发送给AI服务提供商。</li>
             </ul>
         </section>
 
         <section>
-            <h2>6. 数据存储与安全</h2>
+            <h2>5. Strava</h2>
             <ul>
-                <li>敏感数据（API密钥、令牌、健康数据）使用expo-secure-store存储，该工具使用iOS钥匙串进行加密存储。</li>
-                <li>存储在SQLite中的健康指标使用应用层AES-256-GCM加密。加密密钥存储在iOS钥匙串中。</li>
-                <li>您的数据通过Apple的CloudKit同步到您的个人iCloud账户。此数据存储在仅您可访问的私有CloudKit容器中。Lawton Labs运营的服务器上不存储任何健康数据。</li>
-                <li>数据导出功能可从个人资料页面以JSON格式导出。</li>
+                <li>当您连接Strava时，本应用通过OAuth登录，绝不会看到您的Strava密码。</li>
+                <li>本应用会获取您的活动（类型、时长、距离、心率）并缓存在您的设备上。如果您将训练分享到Strava，本应用会将其发布到您的Strava账户。</li>
+                <li>为了通知您新的活动，我们的服务器会存储您的Strava运动员ID和一个推送通知令牌。</li>
+                <li>在设置中断开Strava连接后，缓存的活动将从您的设备中删除。</li>
             </ul>
         </section>
 
         <section>
-            <h2>7. 数据保留与删除</h2>
+            <h2>6. 其他服务提供商</h2>
+            <p>以下服务不会接收任何健康数据：</p>
             <ul>
-                <li>所有数据存储在您的设备上并同步到您的个人iCloud账户。数据将持续保存直到您将其删除。</li>
-                <li>您可以随时使用个人资料页面上的"删除所有数据"选项删除所有数据。这将从您的设备和iCloud中删除数据。</li>
-                <li>卸载本应用将删除所有本地存储的数据。您iCloud账户中的数据可能会保留，直到通过本应用或iCloud设置删除。</li>
-                <li>发送至OpenAI进行化验解析的数据为临时处理，根据OpenAI的API数据使用政策，OpenAI不会保留用于模型训练。</li>
+                <li><strong>Apple iCloud（CloudKit）</strong>：将您的数据同步到您的私有iCloud账户。</li>
+                <li><strong>RevenueCat</strong>：您的应用用户ID和订阅状态，用于管理订阅。</li>
+                <li><strong>Amplitude</strong>：使用事件，用于了解功能的使用情况。</li>
+                <li><strong>AppsFlyer</strong>：设备标识符（IDFV）、您的账户ID以及安装和推荐归因信息，用于了解用户如何发现本应用。</li>
+                <li><strong>Statsig</strong>：匿名设备ID和应用版本，用于逐步推出功能。</li>
+                <li><strong>Firebase Crashlytics</strong>：包含设备型号、操作系统版本和应用版本的崩溃报告，用于修复错误。</li>
+                <li><strong>Formspree</strong>：您通过联系表单发送的消息，以及您提供的电子邮件地址（如有）。</li>
+                <li><strong>Cloudflare</strong>：运行我们的服务器。它存储推荐码及兑换次数、Strava推送通知令牌，以及与您的应用用户ID关联的语音训练使用次数。</li>
             </ul>
         </section>
 
         <section>
-            <h2>8. 儿童隐私</h2>
-            <p>本应用不适用于13岁以下的个人。我们不会故意收集13岁以下儿童的个人信息。</p>
-        </section>
-
-        <section>
-            <h2>9. 分析与错误跟踪</h2>
-            <p>本应用使用以下服务进行分析和错误跟踪：</p>
+            <h2>7. 存储与安全</h2>
             <ul>
-                <li><strong>Amplitude</strong> — 匿名使用分析，帮助我们了解功能使用情况并改进应用。不会向Amplitude发送任何健康数据或个人身份信息。</li>
-                <li><strong>Sentry</strong> — 崩溃和错误报告，帮助我们识别和修复漏洞。错误报告可能包含设备类型、操作系统版本和堆栈跟踪，但不包含您的健康数据。</li>
+                <li>令牌等敏感信息存储在iOS钥匙串中。</li>
+                <li>数据通过加密的HTTPS连接发送。</li>
+                <li>您的iCloud数据存储在仅您的Apple账户可读取的私有CloudKit容器中。</li>
+                <li>您可以在设置中将数据导出为JSON格式。</li>
             </ul>
-            <p>以上服务均不会接收您的健康数据、生物标志物或个人身份健康信息。</p>
         </section>
 
         <section>
-            <h2>10. 政策变更</h2>
-            <p>我们可能会不时更新本隐私政策。我们将通过应用通知您重大变更。变更后继续使用本应用即表示接受更新后的政策。</p>
-        </section>
-
-        <section>
-            <h2>11. 您的权利</h2>
-            <p>您有权：</p>
+            <h2>8. 保留与删除</h2>
             <ul>
-                <li>访问存储在应用中的所有数据。</li>
-                <li>以可移植格式（JSON）导出您的数据。</li>
-                <li>随时删除您的所有数据。</li>
-                <li>随时断开任何第三方服务的连接。</li>
-                <li>选择不使用涉及第三方数据处理的功能（化验导入）。</li>
+                <li>您的数据会保留在您的设备和iCloud账户中，直到您将其删除。</li>
+                <li>设置中的"删除所有数据"会将数据从您的设备和iCloud中删除。</li>
+                <li>卸载本应用会删除本地数据。iCloud中的数据会一直保留，直到您通过本应用或iCloud设置将其删除。</li>
+                <li>发送给Anthropic或OpenAI的数据仅按第3节所述由其保留。</li>
             </ul>
+        </section>
+
+        <section>
+            <h2>9. 儿童隐私</h2>
+            <p>本应用不适用于13岁以下的人士。我们不会故意收集13岁以下儿童的个人信息。</p>
+        </section>
+
+        <section>
+            <h2>10. 您的权利</h2>
+            <ul>
+                <li>您可以随时查看、导出和删除您的数据。</li>
+                <li>您可以在设置 &rarr; 数据与隐私中关闭任何AI功能，也可以从不开启。</li>
+                <li>您可以随时断开Strava连接并撤销对Apple Health的访问权限。</li>
+                <li>您可以就与您数据相关的任何请求联系我们。</li>
+            </ul>
+        </section>
+
+        <section>
+            <h2>11. 政策变更</h2>
+            <p>我们可能会更新本政策。如有重大变更，我们将在应用内通知您，页面顶部的日期表示最新版本。</p>
         </section>
 
         <section>
             <h2>12. 联系方式</h2>
-            <p>如对本隐私政策或您的数据有任何疑问，请通过 <a href="mailto:lawtonlabsapps@gmail.com">lawtonlabsapps@gmail.com</a> 联系我们。</p>
+            <p>如对本政策或您的数据有任何疑问，请通过 <a href="mailto:lawtonlabsapps@gmail.com">lawtonlabsapps@gmail.com</a> 联系我们。</p>
         </section>
 
         <footer>
-            <p>&copy; 2025 Lawton Labs. 保留所有权利。</p>
+            <p>&copy; 2026 Lawton Labs. 保留所有权利。</p>
             <div class="nav-links">
                 <a href="../index.html">首页</a>
                 <a href="terms-of-service.html">服务条款</a>

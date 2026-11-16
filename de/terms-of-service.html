@@ -195,7 +195,7 @@
             <img src="../icon.png" alt="Gradual" class="logo">
             <p class="app-name">Gradual</p>
             <h1>Nutzungsbedingungen</h1>
-            <span class="last-updated">Zuletzt aktualisiert: 26. Februar 2025</span>
+            <span class="last-updated">Zuletzt aktualisiert: 16. November 2026</span>
         </header>
 
         <section>
@@ -225,9 +225,10 @@
             <h2>5. Drittanbieterdienste</h2>
             <p>Die App integriert sich mit den folgenden Drittanbieterdiensten. Ihre Nutzung dieser Integrationen unterliegt den jeweiligen Bedingungen des jeweiligen Dienstes:</p>
             <ul>
-                <li><strong>Apple HealthKit</strong> — Gesundheits- und Fitnessdaten werden mit Ihrer ausdrücklichen Genehmigung gelesen. Diese Daten werden über Ihr persönliches iCloud-Konto synchronisiert und nicht auf Servern von Lawton Labs gespeichert.</li>
+                <li><strong>Apple HealthKit</strong> — Gesundheits- und Fitnessdaten werden mit Ihrer ausdrücklichen Genehmigung gelesen; die App schreibt abgeschlossene Workouts und das von Ihnen eingegebene Körpergewicht. Diese Daten werden über Ihr persönliches iCloud-Konto synchronisiert und nicht auf Servern von Lawton Labs gespeichert.</li>
                 <li><strong>Strava</strong> — Auf Aktivitätsdaten wird über OAuth 2.0 mit PKCE-Authentifizierung zugegriffen. Es werden nur die von Ihnen autorisierten Aktivitätsdaten abgerufen.</li>
-                <li><strong>OpenAI</strong> — Wenn Sie einen Laborbericht importieren und die KI-Analyse wählen, wird Ihr Laborbericht-PDF an die API von OpenAI zur KI-gestützten Biomarkerextraktion gesendet. Details zum Umgang mit diesen Daten finden Sie in unserer <a href="privacy-policy.html">Datenschutzrichtlinie</a>.</li>
+                <li><strong>Anthropic (Claude)</strong> — KI-Funktionen (Laborimport, KI-Einblicke, Chat „Gradual fragen“ sowie KI-Trainings und -Pläne) werden von Anthropic verarbeitet, nachdem Sie in der App einem Einwilligungsbildschirm zugestimmt haben, der den Anbieter nennt. Welche Daten gesendet werden, erfahren Sie in Abschnitt 3 unserer <a href="privacy-policy.html">Datenschutzrichtlinie</a>.</li>
+                <li><strong>OpenAI</strong> — Sprachaufnahmen für Sprachtrainings werden von OpenAI transkribiert. Details finden Sie in Abschnitt 3 unserer <a href="privacy-policy.html">Datenschutzrichtlinie</a>.</li>
             </ul>
         </section>
 
@@ -236,9 +237,9 @@
             <p>Wenn Sie einen Laborbericht importieren, verwendet die App zwei Methoden zur Extraktion von Biomarkerdaten:</p>
             <ul>
                 <li><strong>Lokale Analyse</strong> — Ein regex-basierter Parser läuft vollständig auf Ihrem Gerät ohne externe Datenübertragung.</li>
-                <li><strong>KI-gestützte Analyse</strong> — Ihr Laborbericht-PDF wird an die API von OpenAI zur genaueren Extraktion gesendet. OpenAI verarbeitet diese Daten gemäß den eigenen API-Nutzungsbedingungen und der Datenschutzrichtlinie. Der lokale Parser steht als Fallback zur Verfügung, falls die KI-Analyse fehlschlägt.</li>
+                <li><strong>KI-gestützte Analyse</strong> — Ihr Laborbericht wird zur genaueren Extraktion an Anthropic (Claude) gesendet. Anthropic verarbeitet diese Daten gemäß seinen kommerziellen API-Bedingungen, wie in Abschnitt 3 unserer <a href="privacy-policy.html">Datenschutzrichtlinie</a> beschrieben. Der lokale Parser steht als Fallback zur Verfügung, falls die KI-Analyse fehlschlägt.</li>
             </ul>
-            <p>Beim Importieren eines Laborbericht-PDFs wird Ihnen ein Einwilligungsdialog angezeigt, bevor Daten gesendet werden. Wenn Sie keine Labordaten mit OpenAI teilen möchten, können Sie stattdessen die Option „Ergebnisse einfügen" verwenden, die vollständig auf dem Gerät analysiert.</p>
+            <p>Beim Importieren eines Laborberichts wird Ihnen ein Einwilligungsdialog angezeigt, der den Anbieter nennt, bevor Daten gesendet werden. Wenn Sie keine Labordaten mit Anthropic teilen möchten, können Sie Ergebnisse stattdessen von Hand eingeben oder aus Apple Health lesen.</p>
         </section>
 
         <section>
@@ -272,7 +273,7 @@
         </section>
 
         <footer>
-            <p>&copy; 2025 Lawton Labs. Alle Rechte vorbehalten.</p>
+            <p>&copy; 2026 Lawton Labs. Alle Rechte vorbehalten.</p>
             <div class="nav-links">
                 <a href="../index.html">Startseite</a>
                 <a href="privacy-policy.html">Datenschutzrichtlinie</a>

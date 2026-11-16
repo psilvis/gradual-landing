@@ -195,7 +195,7 @@
             <img src="../icon.png" alt="Gradual" class="logo">
             <p class="app-name">Gradual</p>
             <h1>T&eacute;rminos de Servicio</h1>
-            <span class="last-updated">&Uacute;ltima actualizaci&oacute;n: 26 de febrero de 2025</span>
+            <span class="last-updated">&Uacute;ltima actualizaci&oacute;n: 16 de noviembre de 2026</span>
         </header>
 
         <section>
@@ -225,9 +225,10 @@
             <h2>5. Servicios de terceros</h2>
             <p>La App se integra con los siguientes servicios de terceros. Tu uso de estas integraciones est&aacute; sujeto a los t&eacute;rminos propios de cada servicio:</p>
             <ul>
-                <li><strong>Apple HealthKit</strong> &mdash; Los datos de salud y condici&oacute;n f&iacute;sica se leen con tu permiso expl&iacute;cito. Estos datos se sincronizan a trav&eacute;s de tu cuenta personal de iCloud y no se almacenan en los servidores de Lawton Labs.</li>
+                <li><strong>Apple HealthKit</strong> &mdash; Los datos de salud y condici&oacute;n f&iacute;sica se leen con tu permiso expl&iacute;cito, y la App guarda los entrenamientos que completas y el peso corporal que introduces. Estos datos se sincronizan a trav&eacute;s de tu cuenta personal de iCloud y no se almacenan en los servidores de Lawton Labs.</li>
                 <li><strong>Strava</strong> &mdash; Se accede a los datos de actividad mediante autenticaci&oacute;n OAuth 2.0 con PKCE. Solo se recuperan los datos de actividad que autorizas.</li>
-                <li><strong>OpenAI</strong> &mdash; Cuando importas un informe de laboratorio y eliges el an&aacute;lisis con IA, tu informe de laboratorio en PDF se env&iacute;a a la API de OpenAI para la extracci&oacute;n de biomarcadores impulsada por IA. Consulta nuestra <a href="../es/privacy-policy.html">Pol&iacute;tica de Privacidad</a> para obtener detalles sobre c&oacute;mo se manejan estos datos.</li>
+                <li><strong>Anthropic (Claude)</strong> &mdash; Las funciones de IA (importaci&oacute;n de laboratorio, An&aacute;lisis con IA, chat Pregunta a Gradual, y entrenamientos y planes con IA) las procesa Anthropic despu&eacute;s de que aceptes en la App una pantalla de consentimiento que nombra al proveedor. Consulta la secci&oacute;n 3 de nuestra <a href="../es/privacy-policy.html">Pol&iacute;tica de Privacidad</a> para saber qu&eacute; datos se env&iacute;an.</li>
+                <li><strong>OpenAI</strong> &mdash; OpenAI transcribe las grabaciones de voz de los entrenamientos por voz. Consulta la secci&oacute;n 3 de nuestra <a href="../es/privacy-policy.html">Pol&iacute;tica de Privacidad</a> para obtener m&aacute;s detalles.</li>
             </ul>
         </section>
 
@@ -236,9 +237,9 @@
             <p>Cuando importas un informe de laboratorio, la App utiliza dos m&eacute;todos para extraer datos de biomarcadores:</p>
             <ul>
                 <li><strong>An&aacute;lisis local</strong> &mdash; Un analizador basado en expresiones regulares que se ejecuta completamente en tu dispositivo sin transmisi&oacute;n externa de datos.</li>
-                <li><strong>An&aacute;lisis impulsado por IA</strong> &mdash; Tu informe de laboratorio en PDF se env&iacute;a a la API de OpenAI para una extracci&oacute;n m&aacute;s precisa. OpenAI procesa estos datos de acuerdo con sus propios T&eacute;rminos de Uso y Pol&iacute;tica de Privacidad de la API. El analizador local est&aacute; disponible como respaldo si el an&aacute;lisis con IA falla.</li>
+                <li><strong>An&aacute;lisis impulsado por IA</strong> &mdash; Tu informe de laboratorio se env&iacute;a a Anthropic (Claude) para una extracci&oacute;n m&aacute;s precisa. Anthropic procesa estos datos seg&uacute;n sus condiciones comerciales de API, como se describe en la secci&oacute;n 3 de nuestra <a href="../es/privacy-policy.html">Pol&iacute;tica de Privacidad</a>. El analizador local est&aacute; disponible como respaldo si el an&aacute;lisis con IA falla.</li>
             </ul>
-            <p>Al importar un informe de laboratorio en PDF, se te presenta un di&aacute;logo de consentimiento antes de enviar cualquier dato. Si no deseas compartir datos de laboratorio con OpenAI, puedes usar la opci&oacute;n "Pegar resultados", que analiza completamente en el dispositivo.</p>
+            <p>Al importar un informe de laboratorio, se te muestra un di&aacute;logo de consentimiento que nombra al proveedor antes de enviar cualquier dato. Si no deseas compartir datos de laboratorio con Anthropic, puedes introducir los resultados a mano o leerlos de Apple Health.</p>
         </section>
 
         <section>
@@ -272,7 +273,7 @@
         </section>
 
         <footer>
-            <p>&copy; 2025 Lawton Labs. Todos los derechos reservados.</p>
+            <p>&copy; 2026 Lawton Labs. Todos los derechos reservados.</p>
             <div class="nav-links">
                 <a href="../index.html">Inicio</a>
                 <a href="../es/privacy-policy.html">Pol&iacute;tica de Privacidad</a>

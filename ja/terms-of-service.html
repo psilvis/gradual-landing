@@ -195,7 +195,7 @@
             <img src="../icon.png" alt="Gradual" class="logo">
             <p class="app-name">Gradual</p>
             <h1>利用規約</h1>
-            <span class="last-updated">最終更新日：2025年2月26日</span>
+            <span class="last-updated">最終更新日：2026年11月16日</span>
         </header>
 
         <section>
@@ -225,9 +225,10 @@
             <h2>5. サードパーティサービス</h2>
             <p>本アプリは以下のサードパーティサービスと連携します。これらの連携のご利用は、各サービスの利用規約に従います：</p>
             <ul>
-                <li><strong>Apple HealthKit</strong> — お客様の明示的な許可のもと、健康およびフィットネスデータを読み取ります。このデータはお客様個人のiCloudアカウントを通じて同期され、Lawton Labsのサーバーに保存されることはありません。</li>
+                <li><strong>Apple HealthKit</strong> — お客様の明示的な許可のもと、健康およびフィットネスデータを読み取り、完了したワークアウトと入力された体重を書き込みます。このデータはお客様個人のiCloudアカウントを通じて同期され、Lawton Labsのサーバーに保存されることはありません。</li>
                 <li><strong>Strava</strong> — OAuth 2.0とPKCE認証を使用してアクティビティデータにアクセスします。お客様が許可したアクティビティデータのみが取得されます。</li>
-                <li><strong>OpenAI</strong> — 検査レポートをインポートしてAI解析を選択した場合、検査レポートのPDFがOpenAIのAPIに送信され、AIによるバイオマーカー抽出が行われます。このデータの取り扱いについては、<a href="../ja/privacy-policy.html">プライバシーポリシー</a>をご覧ください。</li>
+                <li><strong>Anthropic（Claude）</strong> — AI機能（検査レポートのインポート、AIインサイト、「Gradualに質問」チャット、AIワークアウトとプラン）は、プロバイダー名を示すアプリ内の同意画面にお客様が同意した後、Anthropicによって処理されます。送信されるデータについては、<a href="../ja/privacy-policy.html">プライバシーポリシー</a>の第3項をご覧ください。</li>
+                <li><strong>OpenAI</strong> — 音声ワークアウトの音声録音はOpenAIによって文字起こしされます。詳しくは、<a href="../ja/privacy-policy.html">プライバシーポリシー</a>の第3項をご覧ください。</li>
             </ul>
         </section>
 
@@ -236,9 +237,9 @@
             <p>検査レポートをインポートする際、本アプリはバイオマーカーデータの抽出に2つの方法を使用します：</p>
             <ul>
                 <li><strong>ローカル解析</strong> — 正規表現ベースの解析がお客様のデバイス上で完全に実行され、外部へのデータ送信は行われません。</li>
-                <li><strong>AI解析</strong> — より正確な抽出のため、検査レポートのPDFがOpenAIのAPIに送信されます。OpenAIは、独自のAPI利用規約およびプライバシーポリシーに従ってこのデータを処理します。AI解析が失敗した場合、ローカル解析がフォールバックとして利用可能です。</li>
+                <li><strong>AI解析</strong> — より正確な抽出のため、検査レポートがAnthropic（Claude）に送信されます。Anthropicは、<a href="../ja/privacy-policy.html">プライバシーポリシー</a>の第3項に記載のとおり、同社の商用API規約に基づいてこのデータを処理します。AI解析が失敗した場合、ローカル解析がフォールバックとして利用可能です。</li>
             </ul>
-            <p>検査レポートのPDFをインポートする際、データが送信される前に同意ダイアログが表示されます。OpenAIと検査データを共有したくない場合は、代わりに「結果を貼り付け」オプションをご利用ください。このオプションはデバイス上のみで解析を行います。</p>
+            <p>検査レポートをインポートする際、データが送信される前に、プロバイダー名を示す同意ダイアログが表示されます。Anthropicと検査データを共有したくない場合は、結果を手動で入力するか、Apple Healthから読み取ることができます。</p>
         </section>
 
         <section>
@@ -272,7 +273,7 @@
         </section>
 
         <footer>
-            <p>&copy; 2025 Lawton Labs. All rights reserved.</p>
+            <p>&copy; 2026 Lawton Labs. All rights reserved.</p>
             <div class="nav-links">
                 <a href="../index.html">ホーム</a>
                 <a href="../ja/privacy-policy.html">プライバシーポリシー</a>

@@ -195,126 +195,127 @@
             <img src="icon.png" alt="Gradual" class="logo">
             <p class="app-name">Gradual</p>
             <h1>Privacy Policy</h1>
-            <span class="last-updated">Last updated: February 26, 2025</span>
+            <span class="last-updated">Last updated: November 16, 2026</span>
         </header>
 
         <section>
             <h2>1. Overview</h2>
-            <p>Gradual ("the App") is built with a privacy-first approach. Your health data is stored securely on your device and synced via Apple's iCloud service using CloudKit. Your data is never stored on Lawton Labs servers. Certain features involve third-party services as described below.</p>
+            <p>Gradual ("the App") is made by Lawton Labs. Your health data is stored on your device and synced through your own iCloud account using Apple's CloudKit. Lawton Labs does not keep your health data on its servers. Some optional features send data to the third-party services named in this policy, and the App asks for your permission before any of them receives personal or health data.</p>
         </section>
 
         <section>
-            <h2>2. Data We Collect</h2>
-            <p>The App collects and stores the following data locally on your device:</p>
+            <h2>2. Data We Collect and How</h2>
+            <p>The App stores the following on your device and in your iCloud account:</p>
             <ul>
-                <li><strong>Profile information</strong> — Your name and preferences entered during onboarding.</li>
-                <li><strong>Health metrics</strong> — Data from Apple HealthKit (steps, heart rate, HRV, sleep, VO2max, and other metrics) with your explicit permission.</li>
-                <li><strong>Activity data</strong> — Workout and activity information from Strava.</li>
-                <li><strong>Lab results</strong> — Biomarker values extracted from lab reports you import.</li>
-                <li><strong>Supplement protocols</strong> — Supplements, dosages, and adherence logs you create.</li>
-                <li><strong>Mood check-ins</strong> — Daily mood and stress ratings you record.</li>
+                <li><strong>Profile information</strong>: the name, birth year or age, biological sex, height, body weight and goals you enter, and your Sign in with Apple user ID.</li>
+                <li><strong>Health metrics</strong>: data you allow the App to read from Apple Health, such as steps, heart rate, heart rate variability, sleep, VO2 max, blood pressure, body measurements, workouts and clinical lab records.</li>
+                <li><strong>Lab results</strong>: biomarker values you enter by hand, import from a lab report or read from Apple Health.</li>
+                <li><strong>Workouts and training plans</strong>: exercises, sets, weights, templates, plans and preferences you log in the App, and activities from Strava if you connect it.</li>
+                <li><strong>Habits and supplements</strong>: the protocols, doses and completion history you record.</li>
+                <li><strong>AI chat history and saved AI memories</strong>, if you use Ask Gradual.</li>
+                <li><strong>Voice recordings</strong>, only while you record a voice workout request. Recordings are not kept on the device after transcription.</li>
             </ul>
-            <div class="highlight">
-                <p>All of the above is encrypted on-device and synced securely via Apple iCloud (CloudKit). Your data is stored in your personal iCloud account and is never stored on Lawton Labs servers.</p>
-            </div>
+            <p>We use this data only to provide the App's features: showing your health trends, calculating Gradual Age and readiness, tracking habits and workouts, and, if you turn them on, the AI features described below. We do not sell your data or use it for advertising.</p>
         </section>
 
         <section>
-            <h2>3. Data Shared with Third Parties</h2>
-            <p><strong>OpenAI (Lab Report Processing)</strong></p>
-            <p>When you use the lab import feature and choose AI parsing, your lab report PDF is sent to OpenAI's API for AI-powered biomarker extraction. This means:</p>
+            <h2>3. AI Features and AI Providers</h2>
+            <p>AI features are optional. Each one shows a consent screen that names the provider and lists the data it receives, and nothing is sent until you tap Enable. You can turn each one off at any time in Settings &rarr; Data &amp; Privacy. Requests pass through our server on Cloudflare, which forwards them and does not store their content.</p>
+            <p><strong>Anthropic (Claude)</strong> provides the App's AI processing:</p>
             <ul>
-                <li>Your lab report PDF — which may include your name, biomarker values, reference ranges, lab name, and test dates — is transmitted to OpenAI's servers for processing.</li>
-                <li>OpenAI processes this data according to the OpenAI API Terms of Use and Privacy Policy.</li>
-                <li>Under OpenAI's API data usage policy, data sent via the API is not used to train OpenAI's models.</li>
-                <li>The data is transmitted via encrypted HTTPS connection.</li>
-                <li>No device identifiers or personal information beyond the report content are transmitted.</li>
-                <li>If the AI parser fails, the App falls back to a fully local regex-based parser that does not transmit any data.</li>
+                <li><strong>Lab report import</strong>: the lab report you choose, which may include your name, biomarker values, reference ranges, lab name and test dates, is sent to extract your results. A consent dialog appears before each import.</li>
+                <li><strong>AI insights and lab summaries</strong> (after you enable AI insights): the health data relevant to each insight, such as lab results, vitals, sleep, readiness scores, habits, workouts and nutrition logs, together with your age range and biological sex.</li>
+                <li><strong>Ask Gradual chat</strong> (after you enable chat): your question and the health data needed to answer it, chosen from the same categories, plus AI memories you have saved.</li>
+                <li><strong>AI workouts and training plans</strong> (after you enable AI workouts): what you ask for, your recent workouts and saved templates, saved workout preferences, age range, biological sex, and approximate height and body weight.</li>
+                <li><strong>Workout file import</strong>: only exercise names the App cannot match on its own, after a confirmation dialog. No weights, reps or dates are sent.</li>
             </ul>
-            <p>You can avoid sharing lab data with OpenAI by not using the PDF lab import feature. The "Paste Results" option uses an on-device parser that does not transmit any data.</p>
+            <p><strong>OpenAI</strong> transcribes voice recordings for voice workouts (after you enable AI workouts). The recording is sent for transcription only. The resulting text is then handled by Anthropic as described above.</p>
+            <p>We send no names, email addresses or device identifiers with AI requests. Both providers process this data under their commercial API terms, which do not allow them to train their models on it and limit how long they keep it. They may keep requests for a limited period for safety and abuse monitoring, as their privacy policies describe (<a href="https://www.anthropic.com/legal/privacy">Anthropic</a>, <a href="https://openai.com/policies/privacy-policy">OpenAI</a>). We use these providers because their terms protect your data at least as well as this policy does.</p>
+            <p>Without AI features, the App still works: lab results can be entered by hand or read from Apple Health, and the lab card falls back to a summary computed on your device.</p>
         </section>
 
         <section>
-            <h2>4. Apple HealthKit Data</h2>
-            <p>Health data accessed through Apple HealthKit is handled according to Apple's HealthKit guidelines:</p>
+            <h2>4. Apple Health</h2>
             <ul>
-                <li>Data is only accessed after you grant explicit permission.</li>
-                <li>HealthKit data is read only — the App does not write data to HealthKit.</li>
-                <li>HealthKit data is synced via your personal iCloud account using Apple's CloudKit. This data is stored in your private iCloud container and is never stored on Lawton Labs servers or transmitted to third parties.</li>
-                <li>HealthKit data is never used for advertising or marketing purposes.</li>
-            </ul>
-        </section>
-
-        <section>
-            <h2>5. Strava Integration</h2>
-            <p>When you connect your Strava account:</p>
-            <ul>
-                <li>Authentication uses OAuth 2.0 with PKCE — the App never sees or stores your Strava password.</li>
-                <li>Only activity data (type, duration, distance, heart rate) is retrieved from Strava's API.</li>
-                <li>Retrieved activity data is cached locally on your device.</li>
-                <li>You can disconnect Strava at any time from the Profile screen.</li>
+                <li>The App reads Apple Health data only after you grant permission, and only the types you allow.</li>
+                <li>The App writes the workouts you finish and body weight you enter to Apple Health.</li>
+                <li>Apple Health data is never used for advertising or marketing and is never sent to analytics or attribution services.</li>
+                <li>Apple Health data is sent to an AI provider only through the AI features in section 3, after you consent.</li>
             </ul>
         </section>
 
         <section>
-            <h2>6. Data Storage and Security</h2>
+            <h2>5. Strava</h2>
             <ul>
-                <li>Sensitive data (API keys, tokens, health data) is stored using expo-secure-store, which uses the iOS Keychain for encrypted storage.</li>
-                <li>Health metrics stored in SQLite are encrypted with application-layer AES-256-GCM. The encryption key is stored in the iOS Keychain.</li>
-                <li>Your data syncs to your personal iCloud account via Apple's CloudKit. This data is stored in a private CloudKit container accessible only to you. No health data is stored on servers operated by Lawton Labs.</li>
-                <li>Data export is available in JSON format from the Profile screen.</li>
+                <li>When you connect Strava, the App signs in with OAuth and never sees your Strava password.</li>
+                <li>The App retrieves your activities (type, duration, distance, heart rate) and caches them on your device. If you share a workout to Strava, the App posts it to your Strava account.</li>
+                <li>To notify you of new activities, our server stores your Strava athlete ID and a push notification token.</li>
+                <li>Disconnecting Strava in Settings deletes the cached activities from your device.</li>
             </ul>
         </section>
 
         <section>
-            <h2>7. Data Retention and Deletion</h2>
+            <h2>6. Other Service Providers</h2>
+            <p>These services receive no health data:</p>
             <ul>
-                <li>All data is stored on your device and synced to your personal iCloud account. Data persists until you delete it.</li>
-                <li>You can delete all data at any time using the "Delete All Data" option on the Profile screen. This removes data from your device and iCloud.</li>
-                <li>Uninstalling the App removes all locally stored data. Data in your iCloud account may persist until deleted via the App or iCloud settings.</li>
-                <li>Data sent to OpenAI for lab parsing is processed transiently and is not retained by OpenAI for model training purposes, per OpenAI's API data usage policies.</li>
+                <li><strong>Apple iCloud (CloudKit)</strong>: syncs your data to your private iCloud account.</li>
+                <li><strong>RevenueCat</strong>: your App user ID and subscription status, to manage subscriptions.</li>
+                <li><strong>Amplitude</strong>: usage events, to understand how features are used.</li>
+                <li><strong>AppsFlyer</strong>: a device identifier (IDFV), your account ID and install and referral attribution, to understand how people find the App.</li>
+                <li><strong>Statsig</strong>: an anonymous device ID and the App version, to roll out features gradually.</li>
+                <li><strong>Firebase Crashlytics</strong>: crash reports with device model, OS version and App version, to fix bugs.</li>
+                <li><strong>Formspree</strong>: messages you send through the contact form, with your email if you provide it.</li>
+                <li><strong>Cloudflare</strong>: runs our server. It stores referral codes and redemption counts, Strava push notification tokens, and usage counts for voice workouts tied to your App user ID.</li>
             </ul>
         </section>
 
         <section>
-            <h2>8. Children's Privacy</h2>
-            <p>The App is not intended for use by individuals under the age of 13. We do not knowingly collect personal information from children under 13.</p>
-        </section>
-
-        <section>
-            <h2>9. Analytics and Error Tracking</h2>
-            <p>The App uses the following services for analytics and error tracking:</p>
+            <h2>7. Storage and Security</h2>
             <ul>
-                <li><strong>Amplitude</strong> — Anonymous usage analytics to help us understand how features are used and improve the App. No health data or personally identifiable information is sent to Amplitude.</li>
-                <li><strong>Sentry</strong> — Crash and error reporting to help us identify and fix bugs. Error reports may include device type, OS version, and stack traces, but do not include your health data.</li>
+                <li>Sensitive values such as tokens are stored in the iOS Keychain.</li>
+                <li>Data is sent over encrypted HTTPS connections.</li>
+                <li>Your iCloud data is stored in a private CloudKit container that only your Apple account can read.</li>
+                <li>You can export your data as JSON from Settings.</li>
             </ul>
-            <p>Neither service receives your health data, biomarkers, or personally identifiable health information.</p>
         </section>
 
         <section>
-            <h2>10. Changes to This Policy</h2>
-            <p>We may update this Privacy Policy from time to time. We will notify you of material changes through the App. Continued use of the App after changes constitutes acceptance of the updated policy.</p>
-        </section>
-
-        <section>
-            <h2>11. Your Rights</h2>
-            <p>You have the right to:</p>
+            <h2>8. Retention and Deletion</h2>
             <ul>
-                <li>Access all your data stored in the App.</li>
-                <li>Export your data in a portable format (JSON).</li>
-                <li>Delete all your data at any time.</li>
-                <li>Disconnect any third-party service at any time.</li>
-                <li>Choose not to use features that involve third-party data processing (lab import).</li>
+                <li>Your data stays on your device and in your iCloud account until you delete it.</li>
+                <li>"Delete All Data" in Settings removes it from your device and iCloud.</li>
+                <li>Uninstalling the App removes local data. Data in iCloud remains until you delete it through the App or iCloud settings.</li>
+                <li>Data sent to Anthropic or OpenAI is kept by them only as section 3 describes.</li>
             </ul>
+        </section>
+
+        <section>
+            <h2>9. Children's Privacy</h2>
+            <p>The App is not intended for anyone under 13. We do not knowingly collect personal information from children under 13.</p>
+        </section>
+
+        <section>
+            <h2>10. Your Rights</h2>
+            <ul>
+                <li>See, export and delete your data at any time.</li>
+                <li>Turn any AI feature off in Settings &rarr; Data &amp; Privacy, or never turn it on.</li>
+                <li>Disconnect Strava and revoke Apple Health access at any time.</li>
+                <li>Contact us with any request about your data.</li>
+            </ul>
+        </section>
+
+        <section>
+            <h2>11. Changes to This Policy</h2>
+            <p>We may update this policy. We will tell you about material changes in the App, and the date at the top shows the latest version.</p>
         </section>
 
         <section>
             <h2>12. Contact</h2>
-            <p>For questions about this Privacy Policy or your data, please contact us at <a href="mailto:lawtonlabsapps@gmail.com">lawtonlabsapps@gmail.com</a>.</p>
+            <p>For questions about this policy or your data, contact us at <a href="mailto:lawtonlabsapps@gmail.com">lawtonlabsapps@gmail.com</a>.</p>
         </section>
 
         <footer>
-            <p>&copy; 2025 Lawton Labs. All rights reserved.</p>
+            <p>&copy; 2026 Lawton Labs. All rights reserved.</p>
             <div class="nav-links">
                 <a href="index.html">Home</a>
                 <a href="terms-of-service.html">Terms of Service</a>

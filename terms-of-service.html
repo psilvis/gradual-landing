@@ -195,7 +195,7 @@
             <img src="icon.png" alt="Gradual" class="logo">
             <p class="app-name">Gradual</p>
             <h1>Terms of Service</h1>
-            <span class="last-updated">Last updated: February 26, 2025</span>
+            <span class="last-updated">Last updated: November 16, 2026</span>
         </header>
 
         <section>
@@ -225,9 +225,10 @@
             <h2>5. Third-Party Services</h2>
             <p>The App integrates with the following third-party services. Your use of these integrations is subject to each service's own terms:</p>
             <ul>
-                <li><strong>Apple HealthKit</strong> — Health and fitness data is read with your explicit permission. This data is synced via your personal iCloud account and is not stored on Lawton Labs servers.</li>
+                <li><strong>Apple HealthKit</strong> — Health and fitness data is read with your explicit permission, and the App writes the workouts you finish and the body weight you enter. This data is synced via your personal iCloud account and is not stored on Lawton Labs servers.</li>
                 <li><strong>Strava</strong> — Activity data is accessed via OAuth 2.0 with PKCE authentication. Only activity data you authorize is retrieved.</li>
-                <li><strong>OpenAI</strong> — When you import a lab report and choose AI parsing, your lab report PDF is sent to OpenAI's API for AI-powered biomarker extraction. See our <a href="privacy-policy.html">Privacy Policy</a> for details on how this data is handled.</li>
+                <li><strong>Anthropic (Claude)</strong> — AI features (lab import, AI insights, Ask Gradual chat, and AI workouts and plans) are processed by Anthropic after you agree to an in-app consent screen that names the provider. See section 3 of our <a href="privacy-policy.html">Privacy Policy</a> for details on what data is sent.</li>
+                <li><strong>OpenAI</strong> — Voice recordings for voice workouts are transcribed by OpenAI. See section 3 of our <a href="privacy-policy.html">Privacy Policy</a> for details.</li>
             </ul>
         </section>
 
@@ -236,9 +237,9 @@
             <p>When you import a lab report, the App uses two methods to extract biomarker data:</p>
             <ul>
                 <li><strong>Local parsing</strong> — A regex-based parser runs entirely on your device with no external data transmission.</li>
-                <li><strong>AI-powered parsing</strong> — Your lab report PDF is sent to OpenAI's API for more accurate extraction. OpenAI processes this data according to its own API Terms of Use and Privacy Policy. The local parser is available as a fallback if AI parsing fails.</li>
+                <li><strong>AI-powered parsing</strong> — Your lab report is sent to Anthropic (Claude) for more accurate extraction. Anthropic processes this data under its commercial API terms, as described in section 3 of our <a href="privacy-policy.html">Privacy Policy</a>. The local parser is available as a fallback if AI parsing fails.</li>
             </ul>
-            <p>When importing a lab report PDF, you are presented with a consent dialog before any data is sent. If you do not wish to share lab data with OpenAI, you can use the "Paste Results" option instead, which parses entirely on-device.</p>
+            <p>When importing a lab report, you are shown a consent dialog that names the provider before any data is sent. If you do not wish to share lab data with Anthropic, you can enter results by hand or read them from Apple Health instead.</p>
         </section>
 
         <section>
@@ -272,7 +273,7 @@
         </section>
 
         <footer>
-            <p>&copy; 2025 Lawton Labs. All rights reserved.</p>
+            <p>&copy; 2026 Lawton Labs. All rights reserved.</p>
             <div class="nav-links">
                 <a href="index.html">Home</a>
                 <a href="privacy-policy.html">Privacy Policy</a>

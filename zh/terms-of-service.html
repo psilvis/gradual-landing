@@ -195,7 +195,7 @@
             <img src="../icon.png" alt="Gradual" class="logo">
             <p class="app-name">Gradual</p>
             <h1>服务条款</h1>
-            <span class="last-updated">最后更新：2025年2月26日</span>
+            <span class="last-updated">最后更新：2026年11月16日</span>
         </header>
 
         <section>
@@ -225,9 +225,10 @@
             <h2>5. 第三方服务</h2>
             <p>本应用集成以下第三方服务。您对这些集成的使用受各服务自身条款的约束：</p>
             <ul>
-                <li><strong>Apple HealthKit</strong> — 经您明确授权后读取健康和健身数据。此数据通过您的个人iCloud账户同步，不会存储在Lawton Labs的服务器上。</li>
+                <li><strong>Apple HealthKit</strong> — 经您明确授权后读取健康和健身数据，并写入您完成的训练和您输入的体重。此数据通过您的个人iCloud账户同步，不会存储在Lawton Labs的服务器上。</li>
                 <li><strong>Strava</strong> — 活动数据通过OAuth 2.0与PKCE身份验证访问。仅获取您授权的活动数据。</li>
-                <li><strong>OpenAI</strong> — 当您导入化验报告并选择AI解析时，您的化验报告PDF将被发送至OpenAI的API进行AI驱动的生物标志物提取。详情请参阅我们的<a href="privacy-policy.html">隐私政策</a>。</li>
+                <li><strong>Anthropic（Claude）</strong> — AI功能（化验导入、AI 洞察、"询问 Gradual"聊天以及AI 训练和计划）在您同意应用内列明服务提供商的同意界面后，由Anthropic处理。有关发送哪些数据，请参阅我们<a href="privacy-policy.html">隐私政策</a>的第3节。</li>
+                <li><strong>OpenAI</strong> — 语音训练的语音录音由OpenAI转写。详情请参阅我们<a href="privacy-policy.html">隐私政策</a>的第3节。</li>
             </ul>
         </section>
 
@@ -236,9 +237,9 @@
             <p>当您导入化验报告时，本应用使用两种方法提取生物标志物数据：</p>
             <ul>
                 <li><strong>本地解析</strong> — 基于正则表达式的解析器完全在您的设备上运行，不进行任何外部数据传输。</li>
-                <li><strong>AI驱动解析</strong> — 您的化验报告PDF被发送至OpenAI的API以获得更准确的提取。OpenAI根据其API使用条款和隐私政策处理此数据。如果AI解析失败，可使用本地解析器作为备选。</li>
+                <li><strong>AI驱动解析</strong> — 您的化验报告会发送至Anthropic（Claude）以获得更准确的提取。Anthropic根据其商业API条款处理此数据，详见我们<a href="privacy-policy.html">隐私政策</a>的第3节。如果AI解析失败，可使用本地解析器作为备选。</li>
             </ul>
-            <p>导入化验报告PDF时，在发送任何数据之前会向您展示同意对话框。如果您不希望与OpenAI共享化验数据，可以使用"粘贴结果"选项，该选项完全在设备端解析。</p>
+            <p>导入化验报告时，在发送任何数据之前会向您展示列明服务提供商的同意对话框。如果您不希望与Anthropic共享化验数据，可以手动输入结果或从Apple Health读取。</p>
         </section>
 
         <section>
@@ -272,7 +273,7 @@
         </section>
 
         <footer>
-            <p>&copy; 2025 Lawton Labs. 保留所有权利。</p>
+            <p>&copy; 2026 Lawton Labs. 保留所有权利。</p>
             <div class="nav-links">
                 <a href="../index.html">首页</a>
                 <a href="privacy-policy.html">隐私政策</a>

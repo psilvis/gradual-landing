@@ -195,7 +195,7 @@
             <img src="../icon.png" alt="Gradual" class="logo">
             <p class="app-name">Gradual</p>
             <h1>Användarvillkor</h1>
-            <span class="last-updated">Senast uppdaterad: 26 februari 2025</span>
+            <span class="last-updated">Senast uppdaterad: 16 november 2026</span>
         </header>
 
         <section>
@@ -225,9 +225,10 @@
             <h2>5. Tredjepartstjänster</h2>
             <p>Appen integreras med följande tredjepartstjänster. Din användning av dessa integrationer omfattas av respektive tjänsts egna villkor:</p>
             <ul>
-                <li><strong>Apple HealthKit</strong> — Hälso- och träningsdata läses med ditt uttryckliga tillstånd. Dessa data synkroniseras via ditt personliga iCloud-konto och lagras inte på Lawton Labs servrar.</li>
+                <li><strong>Apple HealthKit</strong> — Hälso- och träningsdata läses med ditt uttryckliga tillstånd, och appen sparar dina avslutade träningspass och den kroppsvikt du anger. Dessa data synkroniseras via ditt personliga iCloud-konto och lagras inte på Lawton Labs servrar.</li>
                 <li><strong>Strava</strong> — Aktivitetsdata nås via OAuth 2.0 med PKCE-autentisering. Endast aktivitetsdata som du godkänner hämtas.</li>
-                <li><strong>OpenAI</strong> — När du importerar en labbrapport och väljer AI-analys skickas din labbrapport-PDF till OpenAI:s API för AI-driven biomarkörextraktion. Se vår <a href="privacy-policy.html">integritetspolicy</a> för detaljer om hur dessa data hanteras.</li>
+                <li><strong>Anthropic (Claude)</strong> — AI-funktioner (labbimport, AI-insikter, Fråga Gradual-chatten samt AI-pass och program) bearbetas av Anthropic efter att du har godkänt en samtyckesskärm i appen som namnger leverantören. Se avsnitt 3 i vår <a href="privacy-policy.html">integritetspolicy</a> för vilka data som skickas.</li>
+                <li><strong>OpenAI</strong> — Röstinspelningar för röstpass transkriberas av OpenAI. Se avsnitt 3 i vår <a href="privacy-policy.html">integritetspolicy</a> för detaljer.</li>
             </ul>
         </section>
 
@@ -236,9 +237,9 @@
             <p>När du importerar en labbrapport använder appen två metoder för att extrahera biomarkördata:</p>
             <ul>
                 <li><strong>Lokal analys</strong> — En regex-baserad parser körs helt på din enhet utan extern dataöverföring.</li>
-                <li><strong>AI-driven analys</strong> — Din labbrapport-PDF skickas till OpenAI:s API för mer exakt extraktion. OpenAI bearbetar dessa data enligt sina egna API-användarvillkor och integritetspolicy. Den lokala parsern finns tillgänglig som reserv om AI-analysen misslyckas.</li>
+                <li><strong>AI-driven analys</strong> — Din labbrapport skickas till Anthropic (Claude) för mer exakt extraktion. Anthropic bearbetar dessa data enligt sina kommersiella API-villkor, enligt beskrivningen i avsnitt 3 i vår <a href="privacy-policy.html">integritetspolicy</a>. Den lokala parsern finns tillgänglig som reserv om AI-analysen misslyckas.</li>
             </ul>
-            <p>När du importerar en labbrapport-PDF visas en samtyckesdialog innan några data skickas. Om du inte vill dela labbdata med OpenAI kan du istället använda alternativet "Klistra in resultat", som analyserar helt på enheten.</p>
+            <p>När du importerar en labbrapport visas en samtyckesdialog som namnger leverantören innan några data skickas. Om du inte vill dela labbdata med Anthropic kan du i stället ange resultat för hand eller läsa dem från Apple Health.</p>
         </section>
 
         <section>
@@ -272,7 +273,7 @@
         </section>
 
         <footer>
-            <p>&copy; 2025 Lawton Labs. Alla rättigheter förbehållna.</p>
+            <p>&copy; 2026 Lawton Labs. Alla rättigheter förbehållna.</p>
             <div class="nav-links">
                 <a href="../index.html">Hem</a>
                 <a href="privacy-policy.html">Integritetspolicy</a>
